@@ -16,7 +16,7 @@
 
 package com.dtrules.samples.sampleproject2;
 
-import excel.util.Excel2XML;
+import com.dtrules.compiler.excel.util.Excel2XML;
 
 
 /**

@@ -1,5 +1,8 @@
 <DTRules>
 
+  <compileralias name="EL">com.dtrules.compiler.el.EL</compileralias> 
+  <compiler>EL</compiler>
+  
   <RuleSet name="SampleProject2" source="file"  >
      <RuleSetFilePath>/xml</RuleSetFilePath>
      <WorkingDirectory>/temp</WorkingDirectory>
