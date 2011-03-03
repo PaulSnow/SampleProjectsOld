@@ -7,14 +7,19 @@
 			<comments></comments>
 			<policy_reference></policy_reference>
 		</attribute_fields>
-		<contexts></contexts>
+		<contexts>
+			<context_details>
+				<context_number></context_number>
+				<context_description>local string myKidAid = KidAid</context_description>
+			</context_details>
+		</contexts>
 		<initial_actions></initial_actions>
 		<conditions>
 			<condition_details>
 				<condition_number>1</condition_number>
 				<condition_comment>KidAid</condition_comment>
 				<condition_requirement></condition_requirement>
-				<condition_description>job.program == KidAid</condition_description>
+				<condition_description>job.program == myKidAid</condition_description>
 				<condition_column column_number='1' column_value='Y'></condition_column>
 				<condition_column column_number='2' column_value='-'></condition_column>
 				<condition_column column_number='3' column_value='-'></condition_column>
