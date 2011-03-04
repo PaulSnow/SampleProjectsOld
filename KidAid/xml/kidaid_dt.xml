@@ -6,22 +6,16 @@
 <type>FIRST</type>
 <comments></comments>
 <policy_reference></policy_reference></attribute_fields>
-<contexts>
-<context_details>
-<context_number>1</context_number>
-<context_description>local string myKidAid = KidAid</context_description>
-<context_postfix>
-KidAid cvs allocate execute deallocate pop 
-</context_postfix></context_details></contexts>
+<contexts></contexts>
 <initial_actions></initial_actions>
 <conditions>
 <condition_details>
 <condition_number>1</condition_number>
 <condition_comment>KidAid</condition_comment>
 <condition_requirement></condition_requirement>
-<condition_description>job.program == myKidAid</condition_description>
+<condition_description>job.program == KidAid</condition_description>
 <condition_postfix>
-job.program 0 local@  streq 
+job.program KidAid streq 
 </condition_postfix>
 <condition_column column_value="Y" column_number="1"></condition_column>
 <condition_column column_value="-" column_number="2"></condition_column>
