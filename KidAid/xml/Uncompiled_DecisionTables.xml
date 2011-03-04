@@ -1,7 +1,7 @@
 <decision_tables>
 	<decision_table>
 		<table_name>Compute_Eligibility</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments></comments>
@@ -9,7 +9,7 @@
 		</attribute_fields>
 		<contexts>
 			<context_details>
-				<context_number></context_number>
+				<context_number>1</context_number>
 				<context_description>local string myKidAid = KidAid</context_description>
 			</context_details>
 		</contexts>
@@ -158,7 +158,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Calculate_Individual_Income</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments></comments>
@@ -234,7 +234,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Calculate_Group_Size</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>ALL</type>
 			<comments>Calculates the Group Size for Each Person by looking at the relationships between people</comments>
@@ -425,7 +425,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Evaluate_KidAid_Eligibility</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments></comments>
@@ -885,7 +885,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Evaluate_MEDICAID_Eligibility</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments>At this time we are not evaluating Medicaid Clients</comments>
@@ -941,7 +941,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Evaluate_FOODSTAMPS_Eligibilty</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments>At this time we are not evaluating Food Stamp Clients</comments>
@@ -997,7 +997,7 @@
 	</decision_table>
 	<decision_table>
 		<table_name>Evaluate_Results</table_name>
-		<xls_file>KidAidEligiblity.xls</xls_file>
+		<xls_file>KidAid_dt.xls</xls_file>
 		<attribute_fields>
 			<type>FIRST</type>
 			<comments>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 

@@ -23,7 +23,7 @@ import com.dtrules.compiler.excel.util.Excel2XML;
  * @author Paul Snow
  *
  */
-public class CompileSampleProject2 {
+public class CompileKidAid {
 
     /**
      * In Eclipse, System.getProperty("user.dir") returns the project
@@ -39,7 +39,7 @@ public class CompileSampleProject2 {
     public static void main(String args[]) throws Exception { 
         try {
             
-            Excel2XML.compile(path,"DTRules.xml","SampleProject2","repository");
+            Excel2XML.compile(path,"DTRules.xml","KidAid","repository");
                        
         } catch ( Exception ex ) {
             System.out.println("Failed to convert the Excel files");

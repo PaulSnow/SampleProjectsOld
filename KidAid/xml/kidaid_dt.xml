@@ -1,14 +1,14 @@
 <decision_tables>
 <decision_table>
 <table_name>Compute_Eligibility</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments></comments>
 <policy_reference></policy_reference></attribute_fields>
 <contexts>
 <context_details>
-<context_number></context_number>
+<context_number>1</context_number>
 <context_description>local string myKidAid = KidAid</context_description>
 <context_postfix>
 KidAid cvs allocate execute deallocate pop 
@@ -175,7 +175,7 @@ Evaluate_Results
 <action_column column_value="X" column_number="4"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Calculate_Individual_Income</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments></comments>
@@ -256,7 +256,7 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <action_column column_value="X" column_number="2"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Calculate_Group_Size</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>ALL</type>
 <comments>Calculates the Group Size for Each Person by looking at the relationships between people</comments>
@@ -466,7 +466,7 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <action_column column_value="X" column_number="12"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Evaluate_KidAid_Eligibility</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments></comments>
@@ -985,7 +985,7 @@ false cvb /client.eligible xdef
 <action_column column_value="X" column_number="15"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Evaluate_MEDICAID_Eligibility</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments>At this time we are not evaluating Medicaid Clients</comments>
@@ -1044,7 +1044,7 @@ false cvb /client.eligible xdef
 <action_column column_value="X" column_number="1"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Evaluate_FOODSTAMPS_Eligibilty</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments>At this time we are not evaluating Food Stamp Clients</comments>
@@ -1103,7 +1103,7 @@ false cvb /client.eligible xdef
 <action_column column_value="X" column_number="1"></action_column></action_details></actions></decision_table>
 <decision_table>
 <table_name>Evaluate_Results</table_name>
-<xls_file>KidAidEligiblity.xls</xls_file>
+<xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
 <type>FIRST</type>
 <comments>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
