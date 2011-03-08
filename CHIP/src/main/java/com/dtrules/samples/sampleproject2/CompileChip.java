@@ -23,7 +23,7 @@ import com.dtrules.compiler.excel.util.Excel2XML;
  * @author Paul Snow
  *
  */
-public class CompileSampleProject2 {
+public class CompileChip {
 
     /**
      * In Eclipse, System.getProperty("user.dir") returns the project

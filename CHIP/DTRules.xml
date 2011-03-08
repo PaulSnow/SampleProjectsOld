@@ -8,7 +8,7 @@
      <WorkingDirectory>/temp</WorkingDirectory>
      
      <DTExcelFolder>/DecisionTables/</DTExcelFolder>
-     <EDDExcelFile>/edd/sp2_edd.xls</EDDExcelFile>
+     <EDDExcelFolder>/edd/</EDDExcelFolder>
 
      <Entities        name="sp2_edd.xml" />
      <Decisiontables  name="sp2_dt.xml"  />

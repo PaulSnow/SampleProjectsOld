@@ -26,18 +26,18 @@ import com.dtrules.testsupport.ATestHarness;
 import com.dtrules.testsupport.ITestHarness;
 import com.dtrules.xmlparser.XMLPrinter;
 
-public class TestSampleProject2 extends ATestHarness {
+public class TestChip extends ATestHarness {
     
 	    public boolean  Trace()                   { return true;                            }
 	    public boolean  Console()                 { return true;                            }
-	    public String   getPath()                 { return CompileSampleProject2.path;      }
+	    public String   getPath()                 { return CompileChip.path;      }
 	    public String   getRulesDirectoryPath()   { return getPath()+"xml/";                }
 	    public String   getRuleSetName()          { return "SampleProject2";                }
 	    public String   getDecisionTableName()    { return "Compute_Eligibility";           }
 	    public String   getRulesDirectoryFile()   { return "DTRules.xml";                   }             
 	   
 	    public static void main(String[] args) {
-	        ITestHarness t = new TestSampleProject2();
+	        ITestHarness t = new TestChip();
 	        t.runTests();
 	    }
 	    
