@@ -32,7 +32,7 @@ public class TestChip extends ATestHarness {
 	    public boolean  Console()                 { return true;                            }
 	    public String   getPath()                 { return CompileChip.path;      }
 	    public String   getRulesDirectoryPath()   { return getPath()+"xml/";                }
-	    public String   getRuleSetName()          { return "SampleProject2";                }
+	    public String   getRuleSetName()          { return "CHIP";                }
 	    public String   getDecisionTableName()    { return "Compute_Eligibility";           }
 	    public String   getRulesDirectoryFile()   { return "DTRules.xml";                   }             
 	   
@@ -80,7 +80,7 @@ public class TestChip extends ATestHarness {
 	 
 	    private void prt(XMLPrinter xout, IREntity entity, String attrib){
 	        IRObject value = entity.get(attrib);
-	        xout.printdata(attrib,value);
+	        xout.printdata(attrib,value.stringValue());
 	    }
 	    
 	}    

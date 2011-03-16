@@ -15,23 +15,28 @@
 		<field name='client_ID' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='disabled' type='boolean' subtype='' access='r' input='main' default_value='false' comment=''></field>
 		<field name='eligible' type='boolean' subtype='' access='rw' input='' default_value='true' comment='We assume the client is eligible until determined ineligible'></field>
+		<field name='eligibleForMedicaid' type='boolean' subtype='' access='rw' input='' default_value='false' comment=''></field>
 		<field name='expectedChildren' type='integer' subtype='' access='r' input='main' default_value='1' comment='Only valid if Pregnant'></field>
 		<field name='gender' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='incomeGroupCount' type='integer' subtype='' access='rw' input='' default_value='0' comment='Number of Individuals in this Individual&apos;s income group'></field>
 		<field name='incomes' type='array' subtype='income' access='r' input='main' default_value='' comment=''></field>
 		<field name='livesAtResidence' type='boolean' subtype='' access='r' input='main' default_value='true' comment='This client lives at the case residence'></field>
+		<field name='lostInsuranceDate' type='date' subtype='' access='rw' input='' default_value='1/1/2000' comment='Date the client lost insurance'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='notes' type='array' subtype='' access='rw' input='' default_value='' comment='Notes Concerning Eligibility'></field>
 		<field name='pregnant' type='boolean' subtype='' access='r' input='main' default_value='false' comment=''></field>
 		<field name='programLevel' type='string' subtype='' access='rw' input='' default_value='' comment='The program Level for which the client is eligible'></field>
 		<field name='totalGroupIncome' type='integer' subtype='' access='rw' input='' default_value='0' comment='Total Income for this client&apos;s Income Group'></field>
 		<field name='totalIncome' type='integer' subtype='' access='rw' input='' default_value='0' comment='Total Income for this client'></field>
+		<field name='uninsured' type='boolean' subtype='' access='rw' input='' default_value='true' comment='The client is uninsured'></field>
 		<field name='validatedCitizenship' type='boolean' subtype='' access='r' input='main' default_value='' comment=''></field>
+		<field name='validatedImmigrationStatus' type='boolean' subtype='' access='rw' input='' default_value='false' comment='The client is a validated Immigrant'></field>
 	</entity>
 	<entity name='constants' access='rw' comment=''>
 		<field name='AtCostCoverage' type='string' subtype='' access='r' input='' default_value='At Cost Coverage' comment='Coverage Level for the Program'></field>
 		<field name='child' type='string' subtype='' access='r' input='' default_value='child' comment='Relationship Type'></field>
 		<field name='ChildSupport' type='string' subtype='' access='r' input='' default_value='CS' comment='Income Type'></field>
+		<field name='CHIP' type='string' subtype='' access='r' input='' default_value='CHIP' comment='Program Type'></field>
 		<field name='constants' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='coveredCounties' type='array' subtype='' access='r' input='' default_value='{ &quot;AA&quot; &quot;AK&quot; &quot;BC&quot; &quot;BK&quot; &quot;BT&quot; &quot;CR&quot; &quot;CO&quot;  &quot;TX&quot;  &quot;LO&quot;  &quot;AR&quot; }' comment='Counties covered by KidsAid'></field>
 		<field name='diagCodes' type='array' subtype='' access='r' input='' default_value='[ &quot;V2501&quot; &quot;V2502&quot; ]' comment='diag codes'></field>
@@ -41,7 +46,6 @@
 		<field name='FPL_Base' type='integer' subtype='' access='r' input='' default_value='867' comment='Base Federal Poverty Level for 1 person per month'></field>
 		<field name='FPL_PerAdditionalPerson' type='integer' subtype='' access='r' input='' default_value='300' comment='Federal Poverty Level for each additional person per month'></field>
 		<field name='FreeCoverage' type='string' subtype='' access='r' input='' default_value='Free Coverage' comment='Coverage Level for the Program'></field>
-		<field name='KidAid' type='string' subtype='' access='r' input='' default_value='KidAid' comment='Program Type'></field>
 		<field name='LowCostCoverage' type='string' subtype='' access='r' input='' default_value='Low Cost Coverage' comment='Coverage Level for the Program'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='MEDICAID' type='string' subtype='' access='r' input='' default_value='MEDICAID' comment='Program Type'></field>
@@ -62,12 +66,12 @@
 	</entity>
 	<entity name='job' access='rw' comment=''>
 		<field name='currentdate' type='date' subtype='' access='r' input='main' default_value='' comment='The current date.  May be different from the actual date'></field>
-		<field name='effectivedate' type='date' subtype='' access='r' input='main' default_value='' comment='The Elgibility date if the clients prove eligible'></field>
+		<field name='effectivedate' type='date' subtype='' access='r' input='main' default_value='' comment='The Eligibility date if the clients prove eligible'></field>
 		<field name='job' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='junk' type='entity' subtype='' access='rw' input='main' default_value='' comment='Junk to test bug'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
-		<field name='program' type='string' subtype='' access='r' input='main' default_value='none' comment='The program for which we are evaluating Eligiblity'></field>
-		<field name='results' type='array' subtype='result' access='r' input='' default_value='' comment='The results of Elgibility for those clients applying'></field>
+		<field name='program' type='string' subtype='' access='r' input='main' default_value='none' comment='The program for which we are evaluating Eligibility'></field>
+		<field name='results' type='array' subtype='result' access='r' input='' default_value='' comment='The results of Eligibility for those clients applying'></field>
 	</entity>
 	<entity name='relationship' access='rw' comment=''>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>

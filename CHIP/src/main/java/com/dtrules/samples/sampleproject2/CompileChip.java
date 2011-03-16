@@ -39,7 +39,7 @@ public class CompileChip {
     public static void main(String args[]) throws Exception { 
         try {
             
-            Excel2XML.compile(path,"DTRules.xml","SampleProject2","repository");
+            Excel2XML.compile(path,"DTRules.xml","CHIP","repository");
                        
         } catch ( Exception ex ) {
             System.out.println("Failed to convert the Excel files");
