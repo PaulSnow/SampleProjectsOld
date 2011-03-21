@@ -13,7 +13,7 @@
 <condition_number>1</condition_number>
 <condition_comment>CHIP</condition_comment>
 <condition_requirement></condition_requirement>
-<condition_description>job.program  is equal  ignore case  CHIP</condition_description>
+<condition_description>job.program  is equal ignore case  CHIP</condition_description>
 <condition_postfix>
 job.program CHIP sic== 
 </condition_postfix>
@@ -457,7 +457,7 @@ true cvb /client.eligible xdef
 <initial_action_requirement></initial_action_requirement>
 <action_description>add the policy statements to the client.notes</action_description>
 <action_postfix>
-policystatements client.notes false addarray 
+policystatements client.notes true  addarray 
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column>
 <action_column column_value="X" column_number="2"></action_column>
