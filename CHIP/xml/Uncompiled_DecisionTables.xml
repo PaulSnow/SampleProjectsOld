@@ -14,7 +14,7 @@
 				<condition_number>1</condition_number>
 				<condition_comment>CHIP</condition_comment>
 				<condition_requirement></condition_requirement>
-				<condition_description>job.program ==CHIP</condition_description>
+				<condition_description>job.program  is equal  ignore case  CHIP</condition_description>
 				<condition_column column_number='1' column_value='Y'></condition_column>
 			</condition_details>
 			<condition_details>
@@ -35,8 +35,8 @@
 				<condition_number>4</condition_number>
 				<condition_comment>If Not Any of these programs, Report Results Anyway</condition_comment>
 				<condition_requirement></condition_requirement>
-				<condition_description>true</condition_description>
-				<condition_column column_number='4' column_value='Y'></condition_column>
+				<condition_description>otherwise</condition_description>
+				<condition_column column_number='4' column_value='*'></condition_column>
 			</condition_details>
 		</conditions>
 		<actions>
@@ -90,7 +90,20 @@
 				<action_column column_number='4' column_value='X'></action_column>
 			</action_details>
 		</actions>
-		<policy_statements></policy_statements>
+		<policy_statements>
+			<policy_statement column='1'>
+				<policy_description>Evaluate CHIP Eligibility</policy_description>
+			</policy_statement>
+			<policy_statement column='2'>
+				<policy_description>Evaluate MEDICAID Eligiblity</policy_description>
+			</policy_statement>
+			<policy_statement column='3'>
+				<policy_description>Evaluate Food Stamps Eligibility</policy_description>
+			</policy_statement>
+			<policy_statement column='4'>
+				<policy_description>We don&apos;t recogize the program &apos;{ job.program }&apos; selected.</policy_description>
+			</policy_statement>
+		</policy_statements>
 	</decision_table>
 	<decision_table>
 		<table_name>Calculate_Individual_Income</table_name>
