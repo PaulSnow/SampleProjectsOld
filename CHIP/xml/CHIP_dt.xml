@@ -3,9 +3,9 @@
 <table_name>Compute_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts></contexts>
 <initial_actions></initial_actions>
 <conditions>
@@ -124,18 +124,20 @@ Evaluate_Results
 <table_name>Calculate_Individual_Income</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment></context_comment>
 <context_description>for all incomes</context_description>
 <context_postfix>
 dup incomes forall pop 
@@ -177,24 +179,27 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <table_name>Calculate_Group_Size</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>ALL</type>
-<comments>Calculates the Group Size for Each Person by looking at the relationships between people</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>ALL</TYPE>
+<COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment>For each client in the group, we need to calculate a group size (we only need to do this for applying clients)</context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment>We want to compare a client against every other client in the case, so we set up a local variable to point to ThisClient</context_comment>
 <context_description>local entity ThisClient = client</context_description>
 <context_postfix>
 client cve allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>3</context_number>
+<context_comment>Now consider the client in respect to all the other clients in the case (We need to consider all clients in the case, even if not applying)</context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -313,24 +318,27 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <table_name>Evaluate_CHIP_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>ALL</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>ALL</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment>FPL = the Federal Poverty Limit calculated for the number of people in this client&apos;s Income Group.</context_comment>
 <context_description>local int FPL = FPL_Base + FPL_PerAdditionalPerson * (client.IncomeGroupCount - 1 )</context_description>
 <context_postfix>
 FPL_Base FPL_PerAdditionalPerson client.IncomeGroupCount 1 -  * +  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>3</context_number>
+<context_comment>FPL200 = 200 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL200 = FPL * 2</context_description>
 <context_postfix>
 0 local@  2 *  cvi allocate execute deallocate pop 
@@ -430,6 +438,21 @@ otherwise
 <actions>
 <action_details>
 <action_number>1</action_number>
+<action_comment>Record the fpl for this client</action_comment>
+<initial_action_requirement></initial_action_requirement>
+<action_description>set the client_fpl = fpl</action_description>
+<action_postfix>
+0 local@   cvi /client_fpl xdef  
+</action_postfix>
+<action_column column_value="X" column_number="1"></action_column>
+<action_column column_value="X" column_number="2"></action_column>
+<action_column column_value="X" column_number="3"></action_column>
+<action_column column_value="X" column_number="4"></action_column>
+<action_column column_value="X" column_number="5"></action_column>
+<action_column column_value="X" column_number="6"></action_column>
+<action_column column_value="X" column_number="7"></action_column></action_details>
+<action_details>
+<action_number>2</action_number>
 <action_comment>Provide reasons for rejection</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>set client.eligible = false</action_description>
@@ -443,7 +466,7 @@ false cvb /client.eligible xdef
 <action_column column_value="X" column_number="5"></action_column>
 <action_column column_value="X" column_number="6"></action_column></action_details>
 <action_details>
-<action_number>2</action_number>
+<action_number>3</action_number>
 <action_comment>If none of the eligiblity exclusions fired, then the client is eligible</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>set client.eligible = true</action_description>
@@ -452,7 +475,22 @@ true cvb /client.eligible xdef
 </action_postfix>
 <action_column column_value="X" column_number="7"></action_column></action_details>
 <action_details>
-<action_number>3</action_number>
+<action_number>4</action_number>
+<action_comment>Record the client&apos;s income</action_comment>
+<initial_action_requirement></initial_action_requirement>
+<action_description>add &quot;Client Income = &quot; + client.totalGroupIncome to the client.notes</action_description>
+<action_postfix>
+&quot;Client Income = &quot; client.totalGroupIncome strconcat client.notes swap addto 
+</action_postfix>
+<action_column column_value="X" column_number="1"></action_column>
+<action_column column_value="X" column_number="2"></action_column>
+<action_column column_value="X" column_number="3"></action_column>
+<action_column column_value="X" column_number="4"></action_column>
+<action_column column_value="X" column_number="5"></action_column>
+<action_column column_value="X" column_number="6"></action_column>
+<action_column column_value="X" column_number="7"></action_column></action_details>
+<action_details>
+<action_number>5</action_number>
 <action_comment>Record the reasoning.</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>add the policy statements to the client.notes</action_description>
@@ -474,17 +512,17 @@ policystatements client.notes true  addarray
 <policy_description>The Client&apos;s total group income, {client.totalGroupIncome}, is greater than 200 percent of the FPL {FPL200}</policy_description>
 <policy_statement_postfix>&quot;The Client&apos;s total group income, &quot; client.totalGroupIncome cvs strconcat &quot;, is greater than 200 percent of the FPL &quot; 1 local@  cvs strconcat &quot;&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="3">
-<policy_description>The Client must be uninsured for 90 days or more to qualify for CHIP          (columns 5,12)</policy_description>
-<policy_statement_postfix>&quot;The Client must be uninsured for 90 days or more to qualify for CHIP          (columns 5,12)&quot; </policy_statement_postfix></policy_statement>
+<policy_description>The Client must be uninsured for 90 days or more to qualify for CHIP</policy_description>
+<policy_statement_postfix>&quot;The Client must be uninsured for 90 days or more to qualify for CHIP&quot; </policy_statement_postfix></policy_statement>
 <policy_statement column="4">
-<policy_description>The Client is not in a covered county                                                              (columns 4,11)</policy_description>
-<policy_statement_postfix>&quot;The Client is not in a covered county                                                              (columns 4,11)&quot; </policy_statement_postfix></policy_statement>
+<policy_description>The Client is not in a covered county</policy_description>
+<policy_statement_postfix>&quot;The Client is not in a covered county&quot; </policy_statement_postfix></policy_statement>
 <policy_statement column="5">
-<policy_description>The Client must be 18 or younger to qualify for CHIP                                    (columns 3,10)</policy_description>
-<policy_statement_postfix>&quot;The Client must be 18 or younger to qualify for CHIP                                    (columns 3,10)&quot; </policy_statement_postfix></policy_statement>
+<policy_description>The Client must be 18 or younger to qualify for CHIP</policy_description>
+<policy_statement_postfix>&quot;The Client must be 18 or younger to qualify for CHIP&quot; </policy_statement_postfix></policy_statement>
 <policy_statement column="6">
-<policy_description>The Client is eligible for Medicaid, so they are not eligible for CHIP              (columns 1,8)</policy_description>
-<policy_statement_postfix>&quot;The Client is eligible for Medicaid, so they are not eligible for CHIP              (columns 1,8)&quot; </policy_statement_postfix></policy_statement>
+<policy_description>The Client is eligible for Medicaid, so they are not eligible for CHIP</policy_description>
+<policy_statement_postfix>&quot;The Client is eligible for Medicaid, so they are not eligible for CHIP&quot; </policy_statement_postfix></policy_statement>
 <policy_statement column="7">
 <policy_description>The Client is eligible for CHIP</policy_description>
 <policy_statement_postfix>&quot;The Client is eligible for CHIP&quot; </policy_statement_postfix></policy_statement></policy_statements></decision_table>
@@ -492,12 +530,13 @@ policystatements client.notes true  addarray
 <table_name>Evaluate_MEDICAID_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>At this time we are not evaluating Medicaid Clients</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS>At this time we are not evaluating Medicaid Clients</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -537,12 +576,13 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_FOODSTAMPS_Eligibilty</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>At this time we are not evaluating Food Stamp Clients</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS>At this time we are not evaluating Food Stamp Clients</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -582,15 +622,16 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_Results</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
+<TYPE>FIRST</TYPE>
+<COMMENTS>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
 as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying 
 of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic 
-in this table, and update the test code to get the data from the client object.</comments>
-<policy_reference></policy_reference></attribute_fields>
+in this table, and update the test code to get the data from the client object.</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
