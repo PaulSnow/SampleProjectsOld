@@ -32,7 +32,7 @@ public class TestChip extends ATestHarness {
 	    public boolean  Console()                 { return true;                            }
 	    public String   getPath()                 { return CompileChip.path;      }
 	    public String   getRulesDirectoryPath()   { return getPath()+"xml/";                }
-	    public String   getRuleSetName()          { return "SampleProject2";                }
+	    public String   getRuleSetName()          { return "Chip";                }
 	    public String   getDecisionTableName()    { return "Compute_Eligibility";           }
 	    public String   getRulesDirectoryFile()   { return "DTRules.xml";                   }             
 	   
@@ -41,47 +41,6 @@ public class TestChip extends ATestHarness {
 	        t.runTests();
 	    }
 	    
-	    public void printReport(int runNumber, IRSession session, PrintStream _out) throws RulesException {
-	        XMLPrinter xout = new XMLPrinter(_out);
-	        xout.opentag("results","runNumber",runNumber);
-	        RArray results = session.getState().find("job.results").rArrayValue();
-	        for(IRObject r :results){
-	            IREntity result = r.rEntityValue();
-
-	            xout.opentag("Client","id",result.get("client_id").stringValue());
-	            prt(xout,result,"totalGroupIncome");
-	            prt(xout,result,"client_fpl");
-	            if(result.get("eligible").booleanValue()){
-	                xout.opentag("Approved");
-		                prt(xout,result,"program");
-		                prt(xout,result,"programLevel");
-		                RArray notes = result.get("notes").rArrayValue();
-		                xout.opentag("Notes");
-		                    for(IRObject n : notes){
-		                       xout.printdata("note",n.stringValue());
-		                    }
-	                    xout.closetag();
-	                xout.closetag();
-	            }else{
-	                xout.opentag("NotApproved");
-	                    prt(xout,result,"program");
-	                    RArray notes = result.get("notes").rArrayValue();
-	                    xout.opentag("Notes");
-	                        for(IRObject n : notes){
-	                           xout.printdata("note",n.stringValue());
-	                        }
-	                    xout.closetag();
-	                xout.closetag();
-	            }
-	            xout.closetag();
-	        }
-	        xout.close();
-	    }
-	 
-	    private void prt(XMLPrinter xout, IREntity entity, String attrib){
-	        IRObject value = entity.get(attrib);
-	        xout.printdata(attrib,value);
-	    }
 	    
 	}    
 	    

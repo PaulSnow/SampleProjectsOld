@@ -1,15 +1,18 @@
 <DTRules>
 
-  <RuleSet name="SampleProject2" source="file"  >
+  <compileralias name="EL">com.dtrules.compiler.el.EL</compileralias> 
+  <compiler>EL</compiler>
+  
+  <RuleSet name="chip" source="file"  >
      <RuleSetFilePath>/xml</RuleSetFilePath>
      <WorkingDirectory>/temp</WorkingDirectory>
      
      <DTExcelFolder>/DecisionTables/</DTExcelFolder>
-     <EDDExcelFile>/edd/sp2_edd.xls</EDDExcelFile>
+     <EDDExcelFolder>/edd/</EDDExcelFolder>
 
-     <Entities        name="sp2_edd.xml" />
-     <Decisiontables  name="sp2_dt.xml"  />
-     <Map             name="sp2_map.xml" />
+     <Entities        name="chip_edd.xml" />
+     <Decisiontables  name="chip_dt.xml"  />
+     <Map             name="chip_map.xml" />
   </RuleSet>    
 
 </DTRules>

@@ -2,10 +2,10 @@
 	<entity name='case' access='rw' comment=''>
 		<field name='case' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='case_ID' type='string' subtype='' access='r' input='main' default_value='' comment='Case_ID'></field>
-		<field name='clients' type='array' subtype='client' access='r' input='' default_value='' comment=''></field>
-		<field name='county_cd' type='string' subtype='' access='rw' input='' default_value='' comment='The county for this case'></field>
+		<field name='clients' type='array' subtype='client' access='r' input='main' default_value='' comment=''></field>
+		<field name='county_cd' type='string' subtype='' access='rw' input='main' default_value='' comment='The county for this case'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
-		<field name='relationships' type='array' subtype='' access='r' input='' default_value='' comment='The relationships between people in the case'></field>
+		<field name='relationships' type='array' subtype='' access='r' input='main' default_value='' comment='The relationships between people in the case'></field>
 	</entity>
 	<entity name='client' access='rw' comment=''>
 		<field name='age' type='integer' subtype='' access='r' input='main' default_value='' comment='We simply get the age of the client'></field>
@@ -15,18 +15,22 @@
 		<field name='client_ID' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='disabled' type='boolean' subtype='' access='r' input='main' default_value='false' comment=''></field>
 		<field name='eligible' type='boolean' subtype='' access='rw' input='' default_value='true' comment='We assume the client is eligible until determined ineligible'></field>
+		<field name='EligibleForMedicaid' type='boolean' subtype='' access='r' input='main' default_value='' comment='The client is eligible for Medicaid'></field>
 		<field name='expectedChildren' type='integer' subtype='' access='r' input='main' default_value='1' comment='Only valid if Pregnant'></field>
 		<field name='gender' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='incomeGroupCount' type='integer' subtype='' access='rw' input='' default_value='0' comment='Number of Individuals in this Individual&apos;s income group'></field>
 		<field name='incomes' type='array' subtype='income' access='r' input='main' default_value='' comment=''></field>
 		<field name='livesAtResidence' type='boolean' subtype='' access='r' input='main' default_value='true' comment='This client lives at the case residence'></field>
+		<field name='lostInsuranceDate' type='date' subtype='' access='r' input='main' default_value='' comment='Date the client lost insurance, if uninsured.  Null if never had insurance'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='notes' type='array' subtype='' access='rw' input='' default_value='' comment='Notes Concerning Elgiblity'></field>
 		<field name='pregnant' type='boolean' subtype='' access='r' input='main' default_value='false' comment=''></field>
 		<field name='programLevel' type='string' subtype='' access='rw' input='' default_value='' comment='The program Level for which the client is eligible'></field>
 		<field name='totalGroupIncome' type='integer' subtype='' access='rw' input='' default_value='0' comment='Total Income for this client&apos;s Income Group'></field>
 		<field name='totalIncome' type='integer' subtype='' access='rw' input='' default_value='0' comment='Total Income for this client'></field>
-		<field name='validatedCitizenship' type='boolean' subtype='' access='r' input='main' default_value='' comment=''></field>
+		<field name='uninsured' type='boolean' subtype='' access='r' input='main' default_value='' comment='Is this client insured?'></field>
+		<field name='validatedCitizenship' type='boolean' subtype='' access='r' input='main' default_value='' comment='citizenship validation for this case'></field>
+		<field name='validatedImmigrationStatus' type='boolean' subtype='' access='r' input='main' default_value='' comment='immigration validation for this case'></field>
 	</entity>
 	<entity name='constants' access='rw' comment=''>
 		<field name='AtCostCoverage' type='string' subtype='' access='r' input='' default_value='At Cost Coverage' comment='Coverage Level for the Program'></field>
@@ -34,7 +38,7 @@
 		<field name='ChildSupport' type='string' subtype='' access='r' input='' default_value='CS' comment='Income Type'></field>
 		<field name='CHIP' type='string' subtype='' access='r' input='' default_value='CHIP' comment='Program Type'></field>
 		<field name='constants' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
-		<field name='coveredCounties' type='array' subtype='' access='r' input='' default_value='{ &quot;AA&quot; &quot;AK&quot; &quot;BC&quot; &quot;BK&quot; &quot;BT&quot; &quot;CR&quot; &quot;CO&quot;  &quot;TX&quot;  &quot;LO&quot;  &quot;AR&quot; }' comment='Counties covered by KidsAid'></field>
+		<field name='coveredCounties' type='array' subtype='' access='r' input='' default_value='{ &quot;AA&quot; &quot;AK&quot; &quot;BC&quot; &quot;BK&quot; &quot;BT&quot; &quot;CR&quot; &quot;CO&quot;  &quot;TX&quot;  &quot;LO&quot;  &quot;AR&quot; }' comment='Counties covered by ChipEligibility'></field>
 		<field name='diagCodes' type='array' subtype='' access='r' input='' default_value='[ &quot;V2501&quot; &quot;V2502&quot; ]' comment='diag codes'></field>
 		<field name='Dividends' type='string' subtype='' access='r' input='' default_value='DIV' comment='Income Type'></field>
 		<field name='ExcludedIncomeTypes' type='array' subtype='' access='r' input='' default_value='{ &quot;CS&quot; &quot;SSI&quot; }' comment='Excluded Income Types'></field>
@@ -86,6 +90,6 @@
 		<field name='program' type='string' subtype='' access='rw' input='' default_value='' comment='Program'></field>
 		<field name='programLevel' type='string' subtype='' access='rw' input='' default_value='' comment='Coverage Level for the Program'></field>
 		<field name='result' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
-		<field name='totalGroupIncome' type='integer' subtype='' access='rw' input='' default_value='' comment='The group Income for this client'></field>
+		<field name='totalGroupIncome' type='integer' subtype='' access='rw' input='' default_value='' comment='Total Group Income for this client'></field>
 	</entity>
 </entity_data_dictionary>

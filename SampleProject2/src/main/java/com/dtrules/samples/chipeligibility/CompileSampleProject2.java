@@ -14,7 +14,7 @@
  * limitations under the License.  
  **/ 
 
-package com.dtrules.samples.sampleproject2;
+package com.dtrules.samples.chipeligibility;
 
 import com.dtrules.compiler.excel.util.Excel2XML;
 
@@ -23,7 +23,7 @@ import com.dtrules.compiler.excel.util.Excel2XML;
  * @author Paul Snow
  *
  */
-public class CompileChip {
+public class CompileSampleProject2 {
 
     /**
      * In Eclipse, System.getProperty("user.dir") returns the project
@@ -39,7 +39,7 @@ public class CompileChip {
     public static void main(String args[]) throws Exception { 
         try {
             
-            Excel2XML.compile(path,"DTRules.xml","CHIP","repository",null,200);
+            Excel2XML.compile(path,"DTRules.xml","SampleProject2","repository");
                        
         } catch ( Exception ex ) {
             System.out.println("Failed to convert the Excel files");
