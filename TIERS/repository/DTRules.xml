@@ -1,0 +1,19 @@
+<DTRules>
+
+  <compileralias name="TIERS_Compiler">com.dtrules.compiler.el.TIERS_Compiler</compileralias> 
+  <compiler>TIERS</compiler>
+  
+  <RuleSet name="TIERS" source="file"  >
+     <RuleSetFilePath>/xml</RuleSetFilePath>
+     <WorkingDirectory>/temp</WorkingDirectory>
+     
+     <DTExcelFolder>/DecisionTables/</DTExcelFolder>
+     <EDDExcelFolder>/edd/</EDDExcelFolder>
+
+     <Entities        name="TIERS_edd.xml" />
+     <Decisiontables  name="TIERS_dt.xml"  />
+     <Map             name="TIERS_map.xml" />
+  </RuleSet>    
+
+</DTRules>
+
