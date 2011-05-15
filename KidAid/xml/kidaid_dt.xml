@@ -3,9 +3,9 @@
 <table_name>Compute_Eligibility</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts></contexts>
 <initial_actions></initial_actions>
 <conditions>
@@ -40,9 +40,9 @@ job.program FOODSTAMPS streq
 <condition_number>4</condition_number>
 <condition_comment>If Not Any of these programs, Report Results Anyway</condition_comment>
 <condition_requirement></condition_requirement>
-<condition_description>true</condition_description>
+<condition_description>otherwise</condition_description>
 <condition_postfix>
-true 
+otherwise 
 </condition_postfix>
 <condition_column column_value="*" column_number="4"></condition_column></condition_details></conditions>
 <actions>
@@ -106,6 +106,18 @@ Evaluate_Results
 <action_column column_value="X" column_number="1"></action_column>
 <action_column column_value="X" column_number="2"></action_column>
 <action_column column_value="X" column_number="3"></action_column>
+<action_column column_value="X" column_number="4"></action_column></action_details>
+<action_details>
+<action_number>7</action_number>
+<action_comment></action_comment>
+<initial_action_requirement></initial_action_requirement>
+<action_description>Add the policy statements to the case.notes</action_description>
+<action_postfix>
+policystatements case.notes true  addarray 
+</action_postfix>
+<action_column column_value="X" column_number="1"></action_column>
+<action_column column_value="X" column_number="2"></action_column>
+<action_column column_value="X" column_number="3"></action_column>
 <action_column column_value="X" column_number="4"></action_column></action_details></actions>
 <policy_statements>
 <policy_statement column="1">
@@ -124,18 +136,20 @@ Evaluate_Results
 <table_name>Calculate_Individual_Income</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment></context_comment>
 <context_description>for all incomes</context_description>
 <context_postfix>
 dup incomes forall pop 
@@ -186,24 +200,27 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <table_name>Calculate_Group_Size</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>ALL</type>
-<comments>Calculates the Group Size for Each Person by looking at the relationships between people</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>ALL</TYPE>
+<COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment>For each client in the group, we need to calculate a group size (we only need to do this for applying clients)</context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment>We want to compare a client against every other client in the case, so we set up a local variable to point to ThisClient</context_comment>
 <context_description>local entity ThisClient = client</context_description>
 <context_postfix>
 client cve allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>3</context_number>
+<context_comment>Now consider the client in respect to all the other clients in the case (We need to consider all clients in the case, even if not applying)</context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -326,86 +343,94 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is self, and pregnant, so add 1 + the number of expected children to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="3">
 <policy_description>The client {client.client_id} is the parent of {ThisClient&apos;s client_id} , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the parent of &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot; , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the parent of &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot; , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="4">
 <policy_description>The client {client.client_id} is the parent of {ThisClient&apos;s client_id}, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the parent of &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot;, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the parent of &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot;, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="5">
 <policy_description>The client {client.client_id} is the sibling of {ThisClient&apos;s client_id} , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the sibling of &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot; , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the sibling of &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot; , is not pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="6">
 <policy_description>The client {client.client_id} is the sibling of {ThisClient&apos;s client_id}, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the sibling of &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot;, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the sibling of &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot;, and is pregnant, so add 1 to this client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="7">
 <policy_description>The client {client.client_id} is the child of {ThisClient&apos;s client_id}, so add 1 to the client&apos;s IncomeGroupCount</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the child of &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot;, so add 1 to the client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is the child of &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot;, so add 1 to the client&apos;s IncomeGroupCount&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="9">
 <policy_description>The client {client.client_id} is older than 18, so add the total income of the client, ({client.totalIncome}) to This Client&apos;s total group income.</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; s+ client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="10">
 <policy_description>The client {client.client_id} is older than 18, so add the total income of the client, ({client.totalIncome}) to This Client&apos;s total group income.</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; s+ client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="11">
 <policy_description>The client {client.client_id} is older than 18, so add the total income of the client, ({client.totalIncome}) to This Client&apos;s total group income.</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; s+ client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="12">
 <policy_description>The client {client.client_id} is older than 18, so add the total income of the client, ({client.totalIncome}) to This Client&apos;s total group income.</policy_description>
-<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The client &quot; client.client_id cvs strconcat &quot; is older than 18, so add the total income of the client, (&quot; s+ client.totalIncome cvs strconcat &quot;) to This Client&apos;s total group income.&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="">
 <policy_description>The relationship between the client {client.client_id} and this client {thisclient&apos;s client_id} is not self, parent, or sibling</policy_description>
-<policy_statement_postfix>&quot;The relationship between the client &quot; client.client_id cvs strconcat &quot; and this client &quot; 0 local@  entitypush client_id entitypop cvs strconcat &quot; is not self, parent, or sibling&quot; strconcat</policy_statement_postfix></policy_statement></policy_statements></decision_table>
+<policy_statement_postfix>&quot;The relationship between the client &quot; client.client_id cvs strconcat &quot; and this client &quot; s+ 0 local@  entitypush client_id entitypop cvs strconcat &quot; is not self, parent, or sibling&quot; strconcat</policy_statement_postfix></policy_statement></policy_statements></decision_table>
 <decision_table>
 <table_name>Evaluate_KidAid_Eligibility</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments></comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS></COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>2</context_number>
+<context_comment>FPL = the Federal Poverty Limit calculated for the number of people in this client&apos;s Income Group.</context_comment>
 <context_description>local int FPL = FPL_Base + FPL_PerAdditionalPerson * (client.IncomeGroupCount - 1 )</context_description>
 <context_postfix>
 FPL_Base FPL_PerAdditionalPerson client.IncomeGroupCount 1 -  * +  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>3</context_number>
+<context_comment>FPL125 = 125 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL125 = FPL * 1.25</context_description>
 <context_postfix>
 0 local@  1.25 fmul  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>4</context_number>
+<context_comment>FPL150 = 150 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL150 = FPL * 1.5</context_description>
 <context_postfix>
 0 local@  1.5 fmul  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>5</context_number>
+<context_comment>FPL175 = 175 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL175 = FPL * 1.75</context_description>
 <context_postfix>
 0 local@  1.75 fmul  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>6</context_number>
+<context_comment>FPL200 = 200 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL200 = FPL * 2</context_description>
 <context_postfix>
 0 local@  2 *  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>7</context_number>
+<context_comment>FPL250 = 250 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL250 = FPL * 2.5</context_description>
 <context_postfix>
 0 local@  2.5 fmul  cvi allocate execute deallocate pop 
 </context_postfix></context_details>
 <context_details>
 <context_number>8</context_number>
+<context_comment>FPL300 = 300 percent of the Federal Poverty Limit</context_comment>
 <context_description>local int FPL300 = FPL * 3</context_description>
 <context_postfix>
 0 local@  3 *  cvi allocate execute deallocate pop 
@@ -686,12 +711,13 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_MEDICAID_Eligibility</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>At this time we are not evaluating Medicaid Clients</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS>At this time we are not evaluating Medicaid Clients</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -731,12 +757,13 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_FOODSTAMPS_Eligibility</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>At this time we are not evaluating Food Stamp Clients</comments>
-<policy_reference></policy_reference></attribute_fields>
+<TYPE>FIRST</TYPE>
+<COMMENTS>At this time we are not evaluating Food Stamp Clients</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients</context_description>
 <context_postfix>
 dup clients forall pop 
@@ -776,15 +803,16 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_Results</table_name>
 <xls_file>KidAid_dt.xls</xls_file>
 <attribute_fields>
-<type>FIRST</type>
-<comments>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
+<TYPE>FIRST</TYPE>
+<COMMENTS>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
 as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying 
 of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic 
-in this table, and update the test code to get the data from the client object.</comments>
-<policy_reference></policy_reference></attribute_fields>
+in this table, and update the test code to get the data from the client object.</COMMENTS>
+<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
+<context_comment></context_comment>
 <context_description>for all clients whose applying == true</context_description>
 <context_postfix>
 { dup applying true beq if } clients forall pop 
@@ -821,15 +849,24 @@ result job.results swap addto
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
 <action_number>3</action_number>
-<action_comment>Point the Result notes to the Client notes</action_comment>
+<action_comment>Add the case notes to the result notes</action_comment>
 <initial_action_requirement></initial_action_requirement>
-<action_description>Set Result.notes = client.notes</action_description>
+<action_description>Add the case.notes to the Result.notes</action_description>
 <action_postfix>
-client.notes /Result.notes xdef 
+case.notes Result.notes true  addarray 
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
 <action_number>4</action_number>
+<action_comment>Add the client notes to the result notes</action_comment>
+<initial_action_requirement></initial_action_requirement>
+<action_description>Add the client.notes to the Result.notes</action_description>
+<action_postfix>
+client.notes Result.notes true  addarray 
+</action_postfix>
+<action_column column_value="X" column_number="1"></action_column></action_details>
+<action_details>
+<action_number>5</action_number>
 <action_comment>Copy the client ID</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.client_id = client.client_id</action_description>
@@ -838,7 +875,7 @@ client.client_id cvs /Result.client_id xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>5</action_number>
+<action_number>6</action_number>
 <action_comment>Point the Result to the client</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.client = client.client</action_description>
@@ -847,7 +884,7 @@ client.client cve /Result.client xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>6</action_number>
+<action_number>7</action_number>
 <action_comment>Set the Result to the program we processed</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.program = job.program</action_description>
@@ -856,7 +893,7 @@ job.program cvs /Result.program xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>7</action_number>
+<action_number>8</action_number>
 <action_comment>Set the Result programLevel to that recorded on the client</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.programLevel = client.programLevel</action_description>
@@ -865,7 +902,7 @@ client.programLevel cvs /Result.programLevel xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>8</action_number>
+<action_number>9</action_number>
 <action_comment>Set the Result eligible flag to that recorded on the client</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.eligible = client.eligible</action_description>
@@ -874,7 +911,7 @@ client.eligible cvb /Result.eligible xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>9</action_number>
+<action_number>10</action_number>
 <action_comment>Set the Result Federal Poverty Level to the client&apos;s</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.client_fpl = client.client_fpl</action_description>
@@ -883,7 +920,7 @@ client.client_fpl  cvi /Result.client_fpl xdef
 </action_postfix>
 <action_column column_value="X" column_number="1"></action_column></action_details>
 <action_details>
-<action_number>10</action_number>
+<action_number>11</action_number>
 <action_comment>Set the Result&apos;s totalGroupIncome to the clients.</action_comment>
 <initial_action_requirement></initial_action_requirement>
 <action_description>Set Result.totalGroupIncome = client.totalGroupIncome</action_description>
