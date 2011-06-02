@@ -39,8 +39,8 @@ public class TestChip extends ATestHarness {
 	    public static void main(String[] args) {
 	        ITestHarness t = new TestChip();
 	        t.runTests();
-	        String fields [] = {};
-	        t.writeDecisionTables("tables",fields,true,1000);
+	        String fields[] = { "table number" };
+	        t.writeDecisionTables("tables",fields,true,10);
 	    }
 	    
 	    public void printReport(int runNumber, IRSession session, PrintStream _out) throws RulesException {

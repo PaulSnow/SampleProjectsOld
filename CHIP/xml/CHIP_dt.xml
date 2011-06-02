@@ -5,7 +5,7 @@
 <attribute_fields>
 <TYPE>FIRST</TYPE>
 <COMMENTS></COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1000</TABLE_NUMBER></attribute_fields>
 <contexts></contexts>
 <initial_actions></initial_actions>
 <conditions>
@@ -126,7 +126,7 @@ Evaluate_Results
 <attribute_fields>
 <TYPE>FIRST</TYPE>
 <COMMENTS></COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1010</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
@@ -181,7 +181,7 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <attribute_fields>
 <TYPE>ALL</TYPE>
 <COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people</COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1020</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
@@ -320,7 +320,7 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <attribute_fields>
 <TYPE>ALL</TYPE>
 <COMMENTS></COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1030</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
@@ -510,7 +510,7 @@ policystatements client.notes true  addarray
 <policy_statement_postfix>&quot;The Client is not a validated Citizen, nor a validated immigrant&quot; </policy_statement_postfix></policy_statement>
 <policy_statement column="2">
 <policy_description>The Client&apos;s total group income, {client.totalGroupIncome}, is greater than 200 percent of the FPL {FPL200}</policy_description>
-<policy_statement_postfix>&quot;The Client&apos;s total group income, &quot; client.totalGroupIncome cvs strconcat &quot;, is greater than 200 percent of the FPL &quot; 1 local@  cvs strconcat &quot;&quot; strconcat</policy_statement_postfix></policy_statement>
+<policy_statement_postfix>&quot;The Client&apos;s total group income, &quot; client.totalGroupIncome cvs strconcat &quot;, is greater than 200 percent of the FPL &quot; s+ 1 local@  cvs strconcat &quot;&quot; strconcat</policy_statement_postfix></policy_statement>
 <policy_statement column="3">
 <policy_description>The Client must be uninsured for 90 days or more to qualify for CHIP</policy_description>
 <policy_statement_postfix>&quot;The Client must be uninsured for 90 days or more to qualify for CHIP&quot; </policy_statement_postfix></policy_statement>
@@ -532,7 +532,7 @@ policystatements client.notes true  addarray
 <attribute_fields>
 <TYPE>FIRST</TYPE>
 <COMMENTS>At this time we are not evaluating Medicaid Clients</COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1040</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
@@ -578,7 +578,7 @@ false cvb /client.eligible xdef
 <attribute_fields>
 <TYPE>FIRST</TYPE>
 <COMMENTS>At this time we are not evaluating Food Stamp Clients</COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1050</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
@@ -627,7 +627,7 @@ false cvb /client.eligible xdef
 as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying 
 of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic 
 in this table, and update the test code to get the data from the client object.</COMMENTS>
-<POLICY_REFERENCE></POLICY_REFERENCE></attribute_fields>
+<TABLE_NUMBER>1060</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
 <context_number>1</context_number>
