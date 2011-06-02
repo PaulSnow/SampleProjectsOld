@@ -19,4 +19,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
 target/
+KidAid/testfiles/output/*.*
+
 
