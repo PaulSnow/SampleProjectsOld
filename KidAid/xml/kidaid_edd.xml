@@ -5,6 +5,7 @@
 		<field name='clients' type='array' subtype='client' access='r' input='' default_value='' comment=''></field>
 		<field name='county_cd' type='string' subtype='' access='rw' input='' default_value='' comment='The county for this case'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
+		<field name='notes' type='array' subtype='' access='r' input='' default_value='' comment='List of notes made on the case'></field>
 		<field name='relationships' type='array' subtype='' access='r' input='' default_value='' comment='The relationships between people in the case'></field>
 	</entity>
 	<entity name='client' access='rw' comment=''>
@@ -61,8 +62,8 @@
 		<field name='type' type='string' subtype='' access='r' input='main' default_value='' comment='Wages, SSI, Tips, Social Security, Child Support, etc.'></field>
 	</entity>
 	<entity name='job' access='rw' comment=''>
-		<field name='currentdate' type='date' subtype='' access='r' input='main' default_value='' comment='The current date.  May be different from the actual date'></field>
-		<field name='effectivedate' type='date' subtype='' access='r' input='main' default_value='' comment='The Elgibility date if the clients prove eligible'></field>
+		<field name='currentdate' type='time' subtype='' access='r' input='main' default_value='' comment='The current date.  May be different from the actual date'></field>
+		<field name='effectivedate' type='time' subtype='' access='r' input='main' default_value='' comment='The Elgibility date if the clients prove eligible'></field>
 		<field name='job' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='junk' type='entity' subtype='' access='rw' input='main' default_value='' comment='Junk to test bug'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
