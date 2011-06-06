@@ -3,8 +3,9 @@
 <table_name>Compute_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>FIRST</TYPE>
+<Type>FIRST</Type>
 <COMMENTS></COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1000</TABLE_NUMBER></attribute_fields>
 <contexts></contexts>
 <initial_actions></initial_actions>
@@ -124,8 +125,9 @@ Evaluate_Results
 <table_name>Calculate_Individual_Income</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>FIRST</TYPE>
+<Type>FIRST</Type>
 <COMMENTS></COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1010</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
@@ -179,8 +181,9 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <table_name>Calculate_Group_Size</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>ALL</TYPE>
+<Type>ALL</Type>
 <COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people</COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1020</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
@@ -204,6 +207,7 @@ client cve allocate execute deallocate pop
 <context_postfix>
 dup clients forall pop 
 </context_postfix></context_details></contexts>
+<initial_actions></initial_actions>
 <conditions>
 <condition_details>
 <condition_number>1</condition_number>
@@ -318,8 +322,9 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <table_name>Evaluate_CHIP_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>ALL</TYPE>
+<Type>ALL</Type>
 <COMMENTS></COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1030</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
@@ -530,8 +535,9 @@ policystatements client.notes true  addarray
 <table_name>Evaluate_MEDICAID_Eligibility</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>FIRST</TYPE>
+<Type>FIRST</Type>
 <COMMENTS>At this time we are not evaluating Medicaid Clients</COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1040</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
@@ -576,8 +582,9 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_FOODSTAMPS_Eligibilty</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>FIRST</TYPE>
+<Type>FIRST</Type>
 <COMMENTS>At this time we are not evaluating Food Stamp Clients</COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1050</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
@@ -622,11 +629,9 @@ false cvb /client.eligible xdef
 <table_name>Evaluate_Results</table_name>
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
-<TYPE>FIRST</TYPE>
-<COMMENTS>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code, 
-as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying 
-of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic 
-in this table, and update the test code to get the data from the client object.</COMMENTS>
+<Type>FIRST</Type>
+<COMMENTS>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code,  as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying  of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic  in this table, and update the test code to get the data from the client object.</COMMENTS>
+<File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1060</TABLE_NUMBER></attribute_fields>
 <contexts>
 <context_details>
