@@ -28,11 +28,15 @@ import com.dtrules.xmlparser.XMLPrinter;
 
 public class TestChip extends ATestHarness {
     
-	    public boolean  Trace()                   { return true;                            }
-	    public boolean  Console()                 { return true;                            }
-	    public String   getPath()                 { return CompileChip.path;      }
+		
+	    @Override
+    	public boolean  Verbose()                 { return false;	                        }
+		public boolean  Trace()                   { return true;                            }
+	    public boolean  Console()                 { return false;                           }
+	    public boolean  coverageReport()          { return true;                       		}
+		public String   getPath()                 { return CompileChip.path;                }
 	    public String   getRulesDirectoryPath()   { return getPath()+"xml/";                }
-	    public String   getRuleSetName()          { return "CHIP";                }
+	    public String   getRuleSetName()          { return "CHIP";                          }
 	    public String   getDecisionTableName()    { return "Compute_Eligibility";           }
 	    public String   getRulesDirectoryFile()   { return "DTRules.xml";                   }             
 	   

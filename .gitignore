@@ -20,5 +20,8 @@ Icon?
 Thumbs.db
 target/
 KidAid/testfiles/output/*.*
-
-
+temp/
+CHIP/testfiles/output/*.*
+bin/
+Uncompiled_DecisionTables.xml
+*.fixedCounts

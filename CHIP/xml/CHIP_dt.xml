@@ -394,11 +394,11 @@ lostInsuranceDate  isnull
 <condition_number>6</condition_number>
 <condition_comment>Children should be uninsured to qualify for CHIP-funded coverage</condition_comment>
 <condition_requirement></condition_requirement>
-<condition_description>lostInsuranceDate + 90 days less than the currentdate</condition_description>
+<condition_description>lostInsuranceDate + 90 days is greater than the currentdate</condition_description>
 <condition_postfix>
-lostInsuranceDate  90  adddays currentdate d&lt; 
+lostInsuranceDate  90  adddays currentdate d&gt; 
 </condition_postfix>
-<condition_column column_value="N" column_number="3"></condition_column></condition_details>
+<condition_column column_value="Y" column_number="3"></condition_column></condition_details>
 <condition_details>
 <condition_number>7</condition_number>
 <condition_comment>Make sure this case is in the appropriate county</condition_comment>
@@ -425,7 +425,7 @@ client.age 18 &lt;=
 <condition_postfix>
 eligibleForMedicaid true beq 
 </condition_postfix>
-<condition_column column_value="N" column_number="6"></condition_column></condition_details>
+<condition_column column_value="Y" column_number="6"></condition_column></condition_details>
 <condition_details>
 <condition_number>10</condition_number>
 <condition_comment>Otherwise the client is eligible</condition_comment>
