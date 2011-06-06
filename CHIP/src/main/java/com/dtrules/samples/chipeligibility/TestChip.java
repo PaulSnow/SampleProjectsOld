@@ -31,7 +31,7 @@ public class TestChip extends ATestHarness {
 		
 	    @Override
     	public boolean  Verbose()                 { return false;	                        }
-		public boolean  Trace()                   { return true;                            }
+		public boolean  Trace()                   { return false;                            }
 	    public boolean  Console()                 { return false;                           }
 	    public boolean  coverageReport()          { return true;                       		}
 		public String   getPath()                 { return CompileChip.path;                }

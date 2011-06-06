@@ -193,6 +193,7 @@ public class TestCaseGen {
 		try {
 			for(int i=1;i<=numCases; i++){
 				if(i>0 && i%100==0)System.out.print(i+" ");
+				if(i>0 && i%500==0)System.out.print("\n");
 				xout = new XMLPrinter("chip_case",new FileOutputStream(path+name+"_"+i+".xml"));
 				generate();
 				xout.close();
@@ -204,7 +205,16 @@ public class TestCaseGen {
 	}
 	
 	public static void main(String args[]){
+		int cnt = 100;
+		if(args.length>0){
+			try {
+				cnt = Integer.parseInt(args[0]);
+			} catch (NumberFormatException e) {
+				System.err.println("Could not parse '"+args[0]+"' as a number.\n" +
+						"Usage:  TestCaseGen <number>");
+			}
+		}
 		TestCaseGen tcg = new TestCaseGen();
-		tcg.generate("test",200);
+		tcg.generate("test",cnt);
 	}
 }
