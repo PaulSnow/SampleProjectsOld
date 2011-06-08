@@ -4,7 +4,7 @@
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
 <Type>FIRST</Type>
-<COMMENTS></COMMENTS>
+<COMMENTS>The assumption of this structure is that these tables could provide an Integrated Eligibility solution.  Doing so would require us to evaluate what programs we are evaluating, and then process the eligibility rules for those programs.  Integrated Eligibility has the advantage of allowing multiple programs to leverage the same decision tables in their logic.  It also allows us to negotiate the interactions between programs (such as Medicaid and CHIP) which might provide the same sorts of services to the same populations, only under different rules and qualifications.  In evaluating CHIP correctly, we should first evaluate an applicant for Medicaid, since children that are eligible for Medicaid are excluded from CHIP (Medicaid serves the lowest income children, and provides more services than CHIP).</COMMENTS>
 <File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1000</TABLE_NUMBER></attribute_fields>
 <contexts></contexts>
@@ -126,7 +126,7 @@ Evaluate_Results
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
 <Type>FIRST</Type>
-<COMMENTS></COMMENTS>
+<COMMENTS>Here we consider the income sources, and the nature of the income.  Some income is excluded from consideration in means testing.  Usually excluded income is from sources such as Child Support or other assistance programs.</COMMENTS>
 <File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1010</TABLE_NUMBER></attribute_fields>
 <contexts>
@@ -182,7 +182,11 @@ income.amount  client.totalIncome + /client.totalIncome xdef
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
 <Type>ALL</Type>
-<COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people</COMMENTS>
+<COMMENTS>Calculates the Group Size for Each Person by looking at the relationships between people.  This is a critical, real world step, required in processing CHIP cases.  When a program is &quot;means&quot; tested, i.e. people whose income is less than X are qualified, then you have to define how to measure &quot;income&quot;.  Obviously most children (even children of millionaires) rarely have income.  So you measure the income of their parents.  But what if they are not living with their parents?  What if their brother is the millionaire? What if the parent makes 100K per year, but has 20 kids to support?  When do we begin to count dependents? In other words, do we count unborn children? (In these tables we do because Louisiana does!)
+
+The first step towards answering these questions is identifying the income group for each applicant.  In our logic here, we are only counting the income of parents and siblings over 18.  In a real world version, we would handle more relationships (Note:  In some states income groups are really this simple.  There are added costs to increasing the complexity of Income Groups!).
+
+Note that this table doesn&apos;t actually create the income group.  It just counts the number of members, and totals their income.  In a real system, we would likely create the group and persist it as part of our tracking (to justify past decisions in an audit).</COMMENTS>
 <File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1020</TABLE_NUMBER></attribute_fields>
 <contexts>
@@ -323,7 +327,9 @@ client.totalIncome  0 local@  entitypush totalGroupIncome + /totalGroupIncome xd
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
 <Type>ALL</Type>
-<COMMENTS></COMMENTS>
+<COMMENTS>Once we have computed the size of the income group for an applicant, then we can compute the Federal Poverty Limit (FPL) for that applicant.  The Federal Poverty Limit is the amount of income for a group that defines poverty.  Means tested programs in the United States are generally defined as some percentage or multiple of the FPL.  
+
+An appropriate income is only one requirement for CHIP.  All the others required by Louisiana are also included in this table.</COMMENTS>
 <File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1030</TABLE_NUMBER></attribute_fields>
 <contexts>
@@ -630,7 +636,7 @@ false cvb /client.eligible xdef
 <xls_file>ChipEligibility_dt.xls</xls_file>
 <attribute_fields>
 <Type>FIRST</Type>
-<COMMENTS>This table is really unnecessarily complicated.  All the client information can be accessed by the calling code,  as we are including a reference to the client in the Result. An exercise for the reader would be to eliminate all the copying  of information from the client to the Result object.  Remove these fields from the Result object in the EDD, remove the logic  in this table, and update the test code to get the data from the client object.</COMMENTS>
+<COMMENTS>This table builds a Result Object which gets added to a list on the Job Entity.  The code in the driving program can use this result object to update a database, report eligibility in a UI, or send the result back over a web service call, etc.  Technically, the calling program has access to everything in the Rules Engine state, so the calling program could access the clients directly.  However, it is often useful to have a set of Result objects to make the Rules Engine/ Application interface as simple as possible.</COMMENTS>
 <File_Name>ChipEligibility_dt.xls</File_Name>
 <TABLE_NUMBER>1060</TABLE_NUMBER></attribute_fields>
 <contexts>

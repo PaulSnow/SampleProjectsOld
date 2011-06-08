@@ -14,6 +14,8 @@ import java.util.Random;
 import com.dtrules.xmlparser.XMLPrinter;
 
 public class TestCaseGen {
+								// This is the default number of how many test cases to generate.
+	static int cnt = 100;		// You can pass a different number on the commandline.
 	
 	Random 		       rand 		 = new Random(1013);
 	XMLPrinter 	       xout 		 = null;
@@ -187,14 +189,20 @@ public class TestCaseGen {
 		xout.closetag();
 	}
 	
+	String filename(String name, int max, int num){
+		int    len = (max+"").length();
+		String cnt = num+"";
+		while(cnt.length()<len){ cnt = "0"+cnt; }
+		return path+name+"_"+cnt+".xml";
+	}
 	
 	void generate(String name, int numCases){
 		
 		try {
 			for(int i=1;i<=numCases; i++){
-				if(i>0 && i%100==0)System.out.print(i+" ");
-				if(i>0 && i%500==0)System.out.print("\n");
-				xout = new XMLPrinter("chip_case",new FileOutputStream(path+name+"_"+i+".xml"));
+				if(i>0 && i%100 ==0)System.out.print(i+" ");
+				if(i>0 && i%1000==0)System.out.print("\n");
+				xout = new XMLPrinter("chip_case",new FileOutputStream(filename(name,numCases,i)));
 				generate();
 				xout.close();
 			}
@@ -205,7 +213,7 @@ public class TestCaseGen {
 	}
 	
 	public static void main(String args[]){
-		int cnt = 100;
+		
 		if(args.length>0){
 			try {
 				cnt = Integer.parseInt(args[0]);
