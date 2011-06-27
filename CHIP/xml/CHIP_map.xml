@@ -17,6 +17,10 @@
 			<setattribute tag='expectedChildren' RAttribute='expectedChildren' enclosure='client' type='integer'></setattribute>
 			<setattribute tag='disabled' RAttribute='disabled' enclosure='client' type='boolean'></setattribute>
 			<setattribute tag='applying' RAttribute='applying' enclosure='client' type='boolean'></setattribute>
+			<setattribute tag='lostInsuranceDate' RAttribute='lostInsuranceDate' enclosure='client' type='date'></setattribute>
+			<setattribute tag='uninsured' RAttribute='uninsured' enclosure='client' type='boolean'></setattribute>
+			<setattribute tag='eligibleForMedicaid' RAttribute='eligibleForMedicaid' enclosure='client' type='boolean'></setattribute>
+			
 
 			<setattribute tag='source' RAttribute='source' enclosure='relationship' type='entity'></setattribute>
 			<setattribute tag='target' RAttribute='target' enclosure='relationship' type='entity'></setattribute>
