@@ -23,7 +23,7 @@ import com.dtrules.compiler.excel.util.Excel2XML;
  * @author Paul Snow
  *
  */
-public class CompileChip {
+public class CompileSudoku {
 
     /**
      * In Eclipse, System.getProperty("user.dir") returns the project
@@ -39,8 +39,8 @@ public class CompileChip {
     public static void main(String args[]) throws Exception { 
         try {
         	System.out.println("path: "+path);
-                    
-            Excel2XML.compile(path,"DTRules.xml","CHIP","repository");
+            String mappings[] = {"main"};
+            Excel2XML.compile(path,"DTRules.xml","Sudoku","repository",mappings);
                        
         } catch ( Exception ex ) {
             System.out.println("Failed to convert the Excel files");

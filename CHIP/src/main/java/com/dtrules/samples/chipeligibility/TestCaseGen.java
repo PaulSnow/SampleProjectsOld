@@ -1,5 +1,6 @@
 package com.dtrules.samples.chipeligibility;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,11 +16,11 @@ import com.dtrules.xmlparser.XMLPrinter;
 
 public class TestCaseGen {
 								// This is the default number of how many test cases to generate.
-	static int cnt = 100;		// You can pass a different number on the commandline.
+	static int cnt = 1000;		// You can pass a different number on the commandline.
 	
 	Random 		       rand 		 = new Random(1013);
 	XMLPrinter 	       xout 		 = null;
-	String 			   path 		 = System.getProperty("user.dir")+"/testfiles/";
+	String 	 		   path 		 = System.getProperty("user.dir")+"/testfiles/";
 	ArrayList<Integer> clients 		 = new ArrayList<Integer>();
 	ArrayList<Integer> relationships = new ArrayList<Integer>();   
 	
@@ -197,11 +198,31 @@ public class TestCaseGen {
 	}
 	
 	void generate(String name, int numCases){
-		
+		try{
+			System.out.println("Clearing away old tests");
+            // Delete old output files
+            File dir         = new File(path);
+            if(!dir.exists()){
+            	dir.mkdirs();
+            }
+            File oldOutput[] = dir.listFiles();
+            for(File file : oldOutput){
+               file.delete(); 
+            }
+        }catch(Exception e){
+            throw new RuntimeException(e);
+        }
+        
 		try {
+			System.out.println("Generating "+numCases+" Tests");
+			int inc = 100;
+			if(inc < 100) inc = 1;
+			if(inc < 1000) inc = 10;
+			int lines = inc*10;
+			
 			for(int i=1;i<=numCases; i++){
-				if(i>0 && i%100 ==0)System.out.print(i+" ");
-				if(i>0 && i%1000==0)System.out.print("\n");
+				if(i>0 && i%inc   ==0 )System.out.print(i+" ");
+				if(i>0 && i%lines ==0 )System.out.print("\n");
 				xout = new XMLPrinter("chip_case",new FileOutputStream(filename(name,numCases,i)));
 				generate();
 				xout.close();
@@ -213,7 +234,7 @@ public class TestCaseGen {
 	}
 	
 	public static void main(String args[]){
-		
+		  
 		if(args.length>0){
 			try {
 				cnt = Integer.parseInt(args[0]);

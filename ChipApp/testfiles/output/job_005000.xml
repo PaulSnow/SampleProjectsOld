@@ -1,0 +1,64 @@
+<job id='5000'>
+	<program>CHIP</program>
+	<effectivedate>07/01/2011 11:38 AM</effectivedate>
+	<currentdate>06/18/2011 11:38 AM</currentdate>
+	<id>5000</id>
+	<case id='5000'>
+		<county_cd>BK</county_cd>
+		<id>5000</id>
+		<client id='38352'>
+			<uninsured>false</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>true</eligibleForMedicaid>
+			<age>24</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>false</applying>
+			<lostInsuranceDate></lostInsuranceDate>
+			<id>38352</id>
+			<income id='32075'>
+				<type>TIP</type>
+				<earned>true</earned>
+				<amount>333</amount>
+				<id>32075</id>
+			</income>
+			<income id='32076'>
+				<type>TIP</type>
+				<earned>true</earned>
+				<amount>446</amount>
+				<id>32076</id>
+			</income>
+		</client>
+		<client id='38353'>
+			<uninsured>false</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>false</validatedCitizenship>
+			<eligibleForMedicaid>true</eligibleForMedicaid>
+			<age>6</age>
+			<disabled>true</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>true</applying>
+			<lostInsuranceDate></lostInsuranceDate>
+			<id>38353</id>
+		</client>
+		<client id='38354'>
+			<uninsured>false</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>73</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>false</applying>
+			<lostInsuranceDate></lostInsuranceDate>
+			<id>38354</id>
+		</client>
+	</case>
+</job>

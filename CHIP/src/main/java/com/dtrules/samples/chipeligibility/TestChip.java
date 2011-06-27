@@ -39,14 +39,17 @@ import com.dtrules.xmlparser.XMLPrinter;
 
 public class TestChip extends ATestHarness {
     	
-		static int threads = 4;
+		static int threads = 1;
+		
+	    public static String path    = System.getProperty("user.dir")+"/";
+		
 		static  Date start = new Date();
 	    @Override
     	public boolean  Verbose()                 { return false;	                        }
 		public boolean  Trace()                   { return false;                           }
 	    public boolean  Console()                 { return false;                           }
 	    public boolean  coverageReport()          { return true;                       		}
-		public String   getPath()                 { return CompileChip.path;                }
+		public String   getPath()                 { return path;                            }
 	    public String   getRulesDirectoryPath()   { return getPath()+"xml/";                }
 	    public String   getRuleSetName()          { return "CHIP";                          }
 	    public String   getDecisionTableName()    { return "Compute_Eligibility";           }
@@ -63,27 +66,37 @@ public class TestChip extends ATestHarness {
 		static RulesDirectory rd;
 		
 		static synchronized File next(){
-			
-			if(top<files.length){
+			top++;
+			if(top<=files.length){
 				if(top% 100 == 0){ 
 					System.out.print(top+" ");
 					if(top%1000 == 0 )System.out.println();
 					System.out.flush();
 				}
-				return files[top++];
+				return files[top-1];
 			}
-			System.out.println();
 			return null;
 		}
 	    
 	    public static void main(String[] args) {
-	        ITestHarness t = new TestChip();
+	    	if(args.length>0){
+	    		try {
+					threads = Integer.parseInt(args[0]);
+					if(threads <=0)   threads = 1;
+				} catch (NumberFormatException e) {
+					System.out.println("The valid Argument to TestChip is a thread count greater than 0.");
+				}
+	    	}
+	    	System.out.println("Executing Tests with "+threads+" Threads.");
+	    	
+	    	ITestHarness t = new TestChip();
 	        t.runTests();
 	        String fields[] = { "table number" };
 	        //t.writeDecisionTables("tables",fields,true,10);
 	    }
 	    
 	    public void runTests(){
+	    	
 	         
 	        try{
 	            // Delete old output files
@@ -115,6 +128,8 @@ public class TestChip extends ATestHarness {
 	         	 rs.newSession(); // Force the creation of the EntityFactory
 	             dir      = new File(getTestDirectory());
 	             files    = getFiles();
+
+	             System.out.println("Processing "+files.length+" tests");
 	             
 	             if(rs == null){
 	            	 System.out.println("Could not find the Rule Set '"+ruleset+"'");

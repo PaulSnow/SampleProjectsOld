@@ -1,0 +1,572 @@
+<job id='1000'>
+	<program>CHIP</program>
+	<effectivedate>07/01/2011 11:38 AM</effectivedate>
+	<currentdate>06/18/2011 11:38 AM</currentdate>
+	<id>1000</id>
+	<case id='1000'>
+		<county_cd>AK</county_cd>
+		<id>1000</id>
+		<client id='7583'>
+			<uninsured>true</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>true</eligibleForMedicaid>
+			<age>7</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>female</gender>
+			<applying>true</applying>
+			<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+			<id>7583</id>
+		</client>
+		<client id='7584'>
+			<uninsured>true</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>48</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>false</applying>
+			<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+			<id>7584</id>
+			<income id='6371'>
+				<type>WA</type>
+				<earned>true</earned>
+				<amount>811</amount>
+				<id>6371</id>
+			</income>
+			<income id='6372'>
+				<type>SS</type>
+				<earned>true</earned>
+				<amount>917</amount>
+				<id>6372</id>
+			</income>
+		</client>
+		<client id='7585'>
+			<uninsured>true</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>0</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>true</applying>
+			<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+			<id>7585</id>
+		</client>
+		<client id='7586'>
+			<uninsured>false</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>false</validatedCitizenship>
+			<eligibleForMedicaid>true</eligibleForMedicaid>
+			<age>17</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>true</applying>
+			<lostInsuranceDate></lostInsuranceDate>
+			<id>7586</id>
+		</client>
+		<client id='7587'>
+			<uninsured>true</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>false</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>10</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>female</gender>
+			<applying>true</applying>
+			<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+			<id>7587</id>
+		</client>
+		<client id='7588'>
+			<uninsured>false</uninsured>
+			<expectedChildren>0</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>61</age>
+			<disabled>false</disabled>
+			<pregnant>false</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>male</gender>
+			<applying>false</applying>
+			<lostInsuranceDate></lostInsuranceDate>
+			<id>7588</id>
+			<income id='6373'>
+				<type>WA</type>
+				<earned>true</earned>
+				<amount>718</amount>
+				<id>6373</id>
+			</income>
+			<income id='6374'>
+				<type>SSI</type>
+				<earned>true</earned>
+				<amount>325</amount>
+				<id>6374</id>
+			</income>
+		</client>
+		<client id='7589'>
+			<uninsured>true</uninsured>
+			<expectedChildren>1</expectedChildren>
+			<validatedCitizenship>true</validatedCitizenship>
+			<eligibleForMedicaid>false</eligibleForMedicaid>
+			<age>26</age>
+			<disabled>false</disabled>
+			<pregnant>true</pregnant>
+			<livesAtResidence>true</livesAtResidence>
+			<gender>female</gender>
+			<applying>false</applying>
+			<lostInsuranceDate>04/18/2011 11:38 AM</lostInsuranceDate>
+			<id>7589</id>
+			<income id='6375'>
+				<type>WA</type>
+				<earned>true</earned>
+				<amount>224</amount>
+				<id>6375</id>
+			</income>
+		</client>
+		<relationship>
+			<type>parent</type>
+			<source id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</source>
+			<target id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>child</type>
+			<source id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</source>
+			<target id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>parent</type>
+			<source id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</source>
+			<target id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>child</type>
+			<source id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</source>
+			<target id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>parent</type>
+			<source id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</source>
+			<target id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>child</type>
+			<source id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</source>
+			<target id='7584'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>48</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>06/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7584</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</source>
+			<target id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</source>
+			<target id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</source>
+			<target id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</source>
+			<target id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</source>
+			<target id='7585'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>0</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7585</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>sibling</type>
+			<source id='7587'>
+				<uninsured>true</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>10</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>true</applying>
+				<lostInsuranceDate>03/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7587</id>
+			</source>
+			<target id='7586'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>false</validatedCitizenship>
+				<eligibleForMedicaid>true</eligibleForMedicaid>
+				<age>17</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>true</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7586</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>parent</type>
+			<source id='7588'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>61</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7588</id>
+			</source>
+			<target id='7589'>
+				<uninsured>true</uninsured>
+				<expectedChildren>1</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>26</age>
+				<disabled>false</disabled>
+				<pregnant>true</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>04/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7589</id>
+			</target>
+		</relationship>
+		<relationship>
+			<type>child</type>
+			<source id='7589'>
+				<uninsured>true</uninsured>
+				<expectedChildren>1</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>26</age>
+				<disabled>false</disabled>
+				<pregnant>true</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>female</gender>
+				<applying>false</applying>
+				<lostInsuranceDate>04/18/2011 11:38 AM</lostInsuranceDate>
+				<id>7589</id>
+			</source>
+			<target id='7588'>
+				<uninsured>false</uninsured>
+				<expectedChildren>0</expectedChildren>
+				<validatedCitizenship>true</validatedCitizenship>
+				<eligibleForMedicaid>false</eligibleForMedicaid>
+				<age>61</age>
+				<disabled>false</disabled>
+				<pregnant>false</pregnant>
+				<livesAtResidence>true</livesAtResidence>
+				<gender>male</gender>
+				<applying>false</applying>
+				<lostInsuranceDate></lostInsuranceDate>
+				<id>7588</id>
+			</target>
+		</relationship>
+	</case>
+</job>

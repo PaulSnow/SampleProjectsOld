@@ -1,0 +1,510 @@
+<DTRulesTrace>
+	<loadData>
+		<process>
+			<job>
+				<createEntity name='job' id='5000'>
+					<program>
+						<def entity='/job 100006 createEntity ' name='program'>&quot;CHIP&quot;</def>
+						<message>   /program &quot;CHIP&quot; def</message>
+					</program>
+					<effectivedate>
+						<def entity='/job 100006 createEntity ' name='effectivedate'>07/01/2011 11:38 AM</def>
+						<message>   /effectivedate &quot;Fri Jul 01 11:38:05 CDT 2011&quot; def</message>
+					</effectivedate>
+					<currentdate>
+						<def entity='/job 100006 createEntity ' name='currentdate'>06/18/2011 11:38 AM</def>
+						<message>   /currentdate &quot;Sat Jun 18 11:38:05 CDT 2011&quot; def</message>
+					</currentdate>
+					<id>
+						<def entity='/job 100006 createEntity ' name='id'>5000</def>
+						<message>   /id &quot;5000&quot; def</message>
+					</id>
+					<case>
+						<createEntity name='case' id='5000'>
+							<county_cd>
+								<def entity='/case 100009 createEntity ' name='county_cd'>&quot;BK&quot;</def>
+								<message>   /county_cd &quot;BK&quot; def</message>
+							</county_cd>
+							<id>
+								<def entity='/case 100009 createEntity ' name='id'>5000</def>
+								<message>   /id &quot;5000&quot; def</message>
+							</id>
+							<client>
+								<createEntity name='client' id='38352'>
+									<uninsured>
+										<def entity='/client 100013 createEntity ' name='uninsured'>false</def>
+										<message>   /uninsured &quot;false&quot; def</message>
+									</uninsured>
+									<expectedChildren>
+										<def entity='/client 100013 createEntity ' name='expectedchildren'>0</def>
+										<message>   /expectedchildren &quot;0&quot; def</message>
+									</expectedChildren>
+									<validatedCitizenship>
+										<def entity='/client 100013 createEntity ' name='validatedcitizenship'>true</def>
+										<message>   /validatedcitizenship &quot;true&quot; def</message>
+									</validatedCitizenship>
+									<eligibleForMedicaid>
+										<def entity='/client 100013 createEntity ' name='eligibleformedicaid'>true</def>
+										<message>   /eligibleformedicaid &quot;true&quot; def</message>
+									</eligibleForMedicaid>
+									<age>
+										<def entity='/client 100013 createEntity ' name='age'>24</def>
+										<message>   /age &quot;24&quot; def</message>
+									</age>
+									<disabled>
+										<def entity='/client 100013 createEntity ' name='disabled'>false</def>
+										<message>   /disabled &quot;false&quot; def</message>
+									</disabled>
+									<pregnant>
+										<def entity='/client 100013 createEntity ' name='pregnant'>false</def>
+										<message>   /pregnant &quot;false&quot; def</message>
+									</pregnant>
+									<livesAtResidence>
+										<def entity='/client 100013 createEntity ' name='livesatresidence'>true</def>
+										<message>   /livesatresidence &quot;true&quot; def</message>
+									</livesAtResidence>
+									<gender>
+										<def entity='/client 100013 createEntity ' name='gender'>&quot;male&quot;</def>
+										<message>   /gender &quot;male&quot; def</message>
+									</gender>
+									<applying>
+										<def entity='/client 100013 createEntity ' name='applying'>false</def>
+										<message>   /applying &quot;false&quot; def</message>
+									</applying>
+									<lostInsuranceDate></lostInsuranceDate>
+									<id>
+										<def entity='/client 100013 createEntity ' name='id'>38352</def>
+										<message>   /id &quot;38352&quot; def</message>
+									</id>
+									<income>
+										<createEntity name='income' id='32075'>
+											<type>
+												<def entity='/income 100017 createEntity ' name='type'>&quot;TIP&quot;</def>
+												<message>   /type &quot;TIP&quot; def</message>
+											</type>
+											<earned>
+												<def entity='/income 100017 createEntity ' name='earned'>true</def>
+												<message>   /earned &quot;true&quot; def</message>
+											</earned>
+											<amount>
+												<def entity='/income 100017 createEntity ' name='amount'>333</def>
+												<message>   /amount &quot;333&quot; def</message>
+											</amount>
+											<id>
+												<def entity='/income 100017 createEntity ' name='id'>32075</def>
+												<message>   /id &quot;32075&quot; def</message>
+											</id>
+										</createEntity>
+									</income>
+									<income>
+										<createEntity name='income' id='32076'>
+											<type>
+												<def entity='/income 100020 createEntity ' name='type'>&quot;TIP&quot;</def>
+												<message>   /type &quot;TIP&quot; def</message>
+											</type>
+											<earned>
+												<def entity='/income 100020 createEntity ' name='earned'>true</def>
+												<message>   /earned &quot;true&quot; def</message>
+											</earned>
+											<amount>
+												<def entity='/income 100020 createEntity ' name='amount'>446</def>
+												<message>   /amount &quot;446&quot; def</message>
+											</amount>
+											<id>
+												<def entity='/income 100020 createEntity ' name='id'>32076</def>
+												<message>   /id &quot;32076&quot; def</message>
+											</id>
+										</createEntity>
+									</income>
+								</createEntity>
+							</client>
+							<client>
+								<createEntity name='client' id='38353'>
+									<uninsured>
+										<def entity='/client 100024 createEntity ' name='uninsured'>false</def>
+										<message>   /uninsured &quot;false&quot; def</message>
+									</uninsured>
+									<expectedChildren>
+										<def entity='/client 100024 createEntity ' name='expectedchildren'>0</def>
+										<message>   /expectedchildren &quot;0&quot; def</message>
+									</expectedChildren>
+									<validatedCitizenship>
+										<def entity='/client 100024 createEntity ' name='validatedcitizenship'>false</def>
+										<message>   /validatedcitizenship &quot;false&quot; def</message>
+									</validatedCitizenship>
+									<eligibleForMedicaid>
+										<def entity='/client 100024 createEntity ' name='eligibleformedicaid'>true</def>
+										<message>   /eligibleformedicaid &quot;true&quot; def</message>
+									</eligibleForMedicaid>
+									<age>
+										<def entity='/client 100024 createEntity ' name='age'>6</def>
+										<message>   /age &quot;6&quot; def</message>
+									</age>
+									<disabled>
+										<def entity='/client 100024 createEntity ' name='disabled'>true</def>
+										<message>   /disabled &quot;true&quot; def</message>
+									</disabled>
+									<pregnant>
+										<def entity='/client 100024 createEntity ' name='pregnant'>false</def>
+										<message>   /pregnant &quot;false&quot; def</message>
+									</pregnant>
+									<livesAtResidence>
+										<def entity='/client 100024 createEntity ' name='livesatresidence'>true</def>
+										<message>   /livesatresidence &quot;true&quot; def</message>
+									</livesAtResidence>
+									<gender>
+										<def entity='/client 100024 createEntity ' name='gender'>&quot;male&quot;</def>
+										<message>   /gender &quot;male&quot; def</message>
+									</gender>
+									<applying>
+										<def entity='/client 100024 createEntity ' name='applying'>true</def>
+										<message>   /applying &quot;true&quot; def</message>
+									</applying>
+									<lostInsuranceDate></lostInsuranceDate>
+									<id>
+										<def entity='/client 100024 createEntity ' name='id'>38353</def>
+										<message>   /id &quot;38353&quot; def</message>
+									</id>
+								</createEntity>
+							</client>
+							<client>
+								<createEntity name='client' id='38354'>
+									<uninsured>
+										<def entity='/client 100029 createEntity ' name='uninsured'>false</def>
+										<message>   /uninsured &quot;false&quot; def</message>
+									</uninsured>
+									<expectedChildren>
+										<def entity='/client 100029 createEntity ' name='expectedchildren'>0</def>
+										<message>   /expectedchildren &quot;0&quot; def</message>
+									</expectedChildren>
+									<validatedCitizenship>
+										<def entity='/client 100029 createEntity ' name='validatedcitizenship'>true</def>
+										<message>   /validatedcitizenship &quot;true&quot; def</message>
+									</validatedCitizenship>
+									<eligibleForMedicaid>
+										<def entity='/client 100029 createEntity ' name='eligibleformedicaid'>false</def>
+										<message>   /eligibleformedicaid &quot;false&quot; def</message>
+									</eligibleForMedicaid>
+									<age>
+										<def entity='/client 100029 createEntity ' name='age'>73</def>
+										<message>   /age &quot;73&quot; def</message>
+									</age>
+									<disabled>
+										<def entity='/client 100029 createEntity ' name='disabled'>false</def>
+										<message>   /disabled &quot;false&quot; def</message>
+									</disabled>
+									<pregnant>
+										<def entity='/client 100029 createEntity ' name='pregnant'>false</def>
+										<message>   /pregnant &quot;false&quot; def</message>
+									</pregnant>
+									<livesAtResidence>
+										<def entity='/client 100029 createEntity ' name='livesatresidence'>true</def>
+										<message>   /livesatresidence &quot;true&quot; def</message>
+									</livesAtResidence>
+									<gender>
+										<def entity='/client 100029 createEntity ' name='gender'>&quot;male&quot;</def>
+										<message>   /gender &quot;male&quot; def</message>
+									</gender>
+									<applying>
+										<def entity='/client 100029 createEntity ' name='applying'>false</def>
+										<message>   /applying &quot;false&quot; def</message>
+									</applying>
+									<lostInsuranceDate></lostInsuranceDate>
+									<id>
+										<def entity='/client 100029 createEntity ' name='id'>38354</def>
+										<message>   /id &quot;38354&quot; def</message>
+									</id>
+								</createEntity>
+							</client>
+						</createEntity>
+					</case>
+				</createEntity>
+			</job>
+		</process>
+	</loadData>
+	<decisiontable name='Compute_Eligibility'>
+		<setup></setup>
+		<initialActions></initialActions>
+		<Condition n='1'>
+			<Formal>job.program  is equal ignore case  CHIP</Formal>
+			<Postfix>job.program CHIP sic==</Postfix>
+			<execute></execute>
+			<result v='Y'></result>
+		</Condition>
+		<column n='1 '>
+			<action n='1'>
+				<formal>Perform Calculate_Individual_Income</formal>
+				<decisiontable name='Calculate_Individual_Income'>
+					<context execute='{ { /Calculate_Individual_Income executeTable  } dup incomes forall pop } dup clients forall pop'>
+						<formal>for all clients</formal>
+						<formal>for all incomes</formal>
+						<setup></setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>income.earned == true</Formal>
+							<Postfix>income.earned true beq</Postfix>
+							<execute></execute>
+							<result v='Y'></result>
+						</Condition>
+						<column n='1 '>
+							<action n='1'>
+								<formal>add income.amount to the client.totalIncome</formal>
+								<def entity='/client 100013 createEntity ' name='client.totalIncome'>333</def>
+							</action>
+						</column>
+						<setup></setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>income.earned == true</Formal>
+							<Postfix>income.earned true beq</Postfix>
+							<execute></execute>
+							<result v='Y'></result>
+						</Condition>
+						<column n='1 '>
+							<action n='1'>
+								<formal>add income.amount to the client.totalIncome</formal>
+								<def entity='/client 100013 createEntity ' name='client.totalIncome'>779</def>
+							</action>
+						</column>
+						<setup></setup>
+					</context>
+				</decisiontable>
+			</action>
+			<action n='2'>
+				<formal>Perform Calculate_Group_Size</formal>
+				<decisiontable name='Calculate_Group_Size'>
+					<context execute='{ { { /Calculate_Group_Size executeTable  } dup clients forall pop } client cve allocate execute deallocate pop } { dup applying true beq if } clients forall pop'>
+						<formal>for all clients whose applying == true</formal>
+						<formal>local entity ThisClient = client</formal>
+						<formal>for all clients</formal>
+						<setup>
+							<allocate value='client'></allocate>
+						</setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>ThisClient == client</Formal>
+							<Postfix>0 local@  client req</Postfix>
+							<execute>
+								<local_fetch index='0' value='client'></local_fetch>
+							</execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='2'>
+							<Formal>the client is the parent of ThisClient</Formal>
+							<Postfix>parent { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='3'>
+							<Formal>the client is the sibling of ThisClient</Formal>
+							<Postfix>sibling { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='4'>
+							<Formal>the client is the child of ThisClient</Formal>
+							<Postfix>child { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<column n=''></column>
+						<setup></setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>ThisClient == client</Formal>
+							<Postfix>0 local@  client req</Postfix>
+							<execute>
+								<local_fetch index='0' value='client'></local_fetch>
+							</execute>
+							<result v='Y'></result>
+						</Condition>
+						<Condition n='5'>
+							<Formal>the client.pregnant == true</Formal>
+							<Postfix>client.pregnant true beq</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='6'>
+							<Formal>client.age &gt; 18</Formal>
+							<Postfix>client.age 18 &gt;</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<column n='1 3 5 7 '>
+							<action n='1'>
+								<formal>add 1 to ThisClient&apos;s IncomeGroupCount</formal>
+								<local_fetch index='0' value='client'></local_fetch>
+								<entitypush value='client' id='100024'></entitypush>
+								<def entity='/client 100024 createEntity ' name='IncomeGroupCount'>1</def>
+								<entitypop></entitypop>
+							</action>
+						</column>
+						<setup></setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>ThisClient == client</Formal>
+							<Postfix>0 local@  client req</Postfix>
+							<execute>
+								<local_fetch index='0' value='client'></local_fetch>
+							</execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='2'>
+							<Formal>the client is the parent of ThisClient</Formal>
+							<Postfix>parent { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='3'>
+							<Formal>the client is the sibling of ThisClient</Formal>
+							<Postfix>sibling { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='4'>
+							<Formal>the client is the child of ThisClient</Formal>
+							<Postfix>child { pop true } { pop false } { dup type streq source client  req and target 0 local@   req and }  relationships forfirstelse</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<column n=''></column>
+						<setup></setup>
+					</context>
+				</decisiontable>
+			</action>
+			<action n='3'>
+				<formal>Perform Evaluate_CHIP_Eligibility</formal>
+				<decisiontable name='Evaluate_CHIP_Eligibility'>
+					<context execute='{ { { /Evaluate_CHIP_Eligibility executeTable  } 0 local@  2 *  cvi allocate execute deallocate pop } FPL_Base FPL_PerAdditionalPerson client.IncomeGroupCount 1 -  * +  cvi allocate execute deallocate pop } { dup applying true beq if } clients forall pop'>
+						<formal>for all clients whose applying == true</formal>
+						<formal>local int FPL = FPL_Base + FPL_PerAdditionalPerson * (client.IncomeGroupCount - 1 )</formal>
+						<formal>local int FPL200 = FPL * 2</formal>
+						<setup>
+							<allocate value='867'></allocate>
+							<local_fetch index='0' value='867'></local_fetch>
+							<allocate value='1734'></allocate>
+						</setup>
+						<initialActions></initialActions>
+						<Condition n='1'>
+							<Formal>validatedCitizenship == true</Formal>
+							<Postfix>validatedCitizenship true beq</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='2'>
+							<Formal>validatedImmigrationStatus == true</Formal>
+							<Postfix>validatedImmigrationStatus true beq</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='3'>
+							<Formal>client.totalGroupIncome &lt;= FPL200</Formal>
+							<Postfix>client.totalGroupIncome 1 local@  &lt;=</Postfix>
+							<execute>
+								<local_fetch index='1' value='1734'></local_fetch>
+							</execute>
+							<result v='Y'></result>
+						</Condition>
+						<Condition n='4'>
+							<Formal>uninsured</Formal>
+							<Postfix>uninsured</Postfix>
+							<execute></execute>
+							<result v='N'></result>
+						</Condition>
+						<Condition n='7'>
+							<Formal>The CoveredCounties includes the string case.county_Cd</Formal>
+							<Postfix>CoveredCounties case.county_Cd memberof</Postfix>
+							<execute></execute>
+							<result v='Y'></result>
+						</Condition>
+						<Condition n='8'>
+							<Formal>client.age &lt;= 18</Formal>
+							<Postfix>client.age 18 &lt;=</Postfix>
+							<execute></execute>
+							<result v='Y'></result>
+						</Condition>
+						<Condition n='9'>
+							<Formal>eligibleForMedicaid == true</Formal>
+							<Postfix>eligibleForMedicaid true beq</Postfix>
+							<execute></execute>
+							<result v='Y'></result>
+						</Condition>
+						<column n='1 6 '>
+							<action n='1'>
+								<formal>set the client_fpl = fpl</formal>
+								<local_fetch index='0' value='867'></local_fetch>
+								<def entity='/client 100024 createEntity ' name='client_fpl'>867</def>
+							</action>
+							<action n='2'>
+								<formal>set client.eligible = false</formal>
+								<def entity='/client 100024 createEntity ' name='client.eligible'>false</def>
+							</action>
+							<action n='4'>
+								<formal>add &quot;Client Income = &quot; + client.totalGroupIncome to the client.notes</formal>
+								<addto arrayID='100026'>&quot;Client Income = 0&quot;</addto>
+							</action>
+							<action n='5'>
+								<formal>add the policy statements to the client.notes</formal>
+							</action>
+						</column>
+						<setup></setup>
+					</context>
+				</decisiontable>
+			</action>
+			<action n='6'>
+				<formal>Perform Evaluate_Results</formal>
+				<decisiontable name='Evaluate_Results'>
+					<context execute='{ /Evaluate_Results executeTable  } { dup applying true beq if } clients forall pop'>
+						<formal>for all clients whose applying == true</formal>
+						<setup></setup>
+						<initialActions></initialActions>
+						<column n='1 '>
+							<action n='1'>
+								<formal>add a new Result entity to the context of this table</formal>
+								<entitypush value='result' id='100037'></entitypush>
+							</action>
+							<action n='2'>
+								<formal>add the result to the job.results</formal>
+								<addto arrayID='100007'>/result 100037 createEntity </addto>
+							</action>
+							<action n='3'>
+								<formal>Set Result.notes = client.notes</formal>
+								<def entity='/result 100037 createEntity ' name='Result.notes'>[&quot;Client Income = 0&quot; &quot;The Client is not a validated Citizen, nor a validated immigrant&quot; &quot;The Client is eligible for Medicaid, so they are not eligible for CHIP&quot; ]</def>
+							</action>
+							<action n='4'>
+								<formal>Set Result.client_id = client.id</formal>
+								<def entity='/result 100037 createEntity ' name='Result.client_id'>&quot;38353&quot;</def>
+							</action>
+							<action n='5'>
+								<formal>Set Result.client = client.client</formal>
+								<def entity='/result 100037 createEntity ' name='Result.client'>/client 100024 createEntity </def>
+							</action>
+							<action n='6'>
+								<formal>Set Result.program = job.program</formal>
+								<def entity='/result 100037 createEntity ' name='Result.program'>&quot;CHIP&quot;</def>
+							</action>
+							<action n='7'>
+								<formal>Set Result.programLevel = client.programLevel</formal>
+								<def entity='/result 100037 createEntity ' name='Result.programLevel'></def>
+							</action>
+							<action n='8'>
+								<formal>Set Result.eligible = client.eligible</formal>
+								<def entity='/result 100037 createEntity ' name='Result.eligible'>false</def>
+							</action>
+							<action n='9'>
+								<formal>Set Result.client_fpl = client.client_fpl</formal>
+								<def entity='/result 100037 createEntity ' name='Result.client_fpl'>867</def>
+							</action>
+							<action n='10'>
+								<formal>Set Result.totalGroupIncome = client.totalGroupIncome</formal>
+								<def entity='/result 100037 createEntity ' name='Result.totalGroupIncome'>0</def>
+							</action>
+						</column>
+						<setup></setup>
+					</context>
+				</decisiontable>
+			</action>
+		</column>
+		<setup></setup>
+	</decisiontable>
+</DTRulesTrace>

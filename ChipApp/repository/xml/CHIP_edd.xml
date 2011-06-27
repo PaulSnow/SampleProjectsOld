@@ -1,9 +1,9 @@
 <entity_data_dictionary version='2' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
 	<entity name='case' access='rw' comment=''>
 		<field name='case' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
+		<field name='case_ID' type='string' subtype='' access='r' input='main' default_value='' comment='Case_ID'></field>
 		<field name='clients' type='array' subtype='client' access='r' input='' default_value='' comment=''></field>
 		<field name='county_cd' type='string' subtype='' access='rw' input='' default_value='' comment='The county for this case'></field>
-		<field name='id' type='integer' subtype='' access='r' input='main' default_value='' comment='Case_ID'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='relationships' type='array' subtype='' access='r' input='' default_value='' comment='The relationships between people in the case'></field>
 	</entity>
@@ -12,12 +12,12 @@
 		<field name='applying' type='boolean' subtype='' access='r' input='main' default_value='false' comment='Is this client applying for the program'></field>
 		<field name='client' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='client_fpl' type='integer' subtype='' access='rw' input='' default_value='0' comment='The FPL percentage for this client.'></field>
+		<field name='client_ID' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='disabled' type='boolean' subtype='' access='r' input='main' default_value='false' comment=''></field>
 		<field name='eligible' type='boolean' subtype='' access='rw' input='' default_value='true' comment='We assume the client is eligible until determined ineligible'></field>
 		<field name='eligibleForMedicaid' type='boolean' subtype='' access='rw' input='' default_value='false' comment=''></field>
 		<field name='expectedChildren' type='integer' subtype='' access='r' input='main' default_value='1' comment='Only valid if Pregnant'></field>
 		<field name='gender' type='string' subtype='' access='r' input='main' default_value='' comment=''></field>
-		<field name='id' type='integer' subtype='' access='r' input='main' default_value='' comment=''></field>
 		<field name='incomeGroupCount' type='integer' subtype='' access='rw' input='' default_value='0' comment='Number of Individuals in this Individual&apos;s income group'></field>
 		<field name='incomes' type='array' subtype='income' access='r' input='main' default_value='' comment=''></field>
 		<field name='livesAtResidence' type='boolean' subtype='' access='r' input='main' default_value='true' comment='This client lives at the case residence'></field>
@@ -60,7 +60,6 @@
 	<entity name='income' access='rw' comment=''>
 		<field name='amount' type='integer' subtype='' access='r' input='main' default_value='' comment='In Dollars, per month'></field>
 		<field name='earned' type='boolean' subtype='' access='r' input='main' default_value='' comment='Earned or Unearned'></field>
-		<field name='id' type='integer' subtype='' access='r' input='main' default_value='' comment='Key'></field>
 		<field name='income' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='type' type='string' subtype='' access='r' input='main' default_value='' comment='Wages, SSI, Tips, Social Security, Child Support, etc.'></field>
@@ -68,14 +67,13 @@
 	<entity name='job' access='rw' comment=''>
 		<field name='currentdate' type='date' subtype='' access='r' input='main' default_value='' comment='The current date.  May be different from the actual date'></field>
 		<field name='effectivedate' type='date' subtype='' access='r' input='main' default_value='' comment='The Eligibility date if the clients prove eligible'></field>
-		<field name='id' type='integer' subtype='' access='r' input='main' default_value='' comment='Key'></field>
 		<field name='job' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
+		<field name='junk' type='entity' subtype='' access='rw' input='main' default_value='' comment='Junk to test bug'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='program' type='string' subtype='' access='r' input='main' default_value='none' comment='The program for which we are evaluating Eligibility'></field>
 		<field name='results' type='array' subtype='result' access='r' input='' default_value='' comment='The results of Eligibility for those clients applying'></field>
 	</entity>
 	<entity name='relationship' access='rw' comment=''>
-		<field name='id' type='integer' subtype='' access='r' input='main' default_value='' comment='Key'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='relationship' type='entity' subtype='' access='r' input='' default_value='' comment='Self Reference'></field>
 		<field name='source' type='entity' subtype='client' access='rw' input='main' default_value='' comment='Source is the &lt;relationship type&gt; of the target'></field>
@@ -85,9 +83,8 @@
 	<entity name='result' access='rw' comment=''>
 		<field name='client' type='entity' subtype='' access='rw' input='' default_value='' comment='This Client'></field>
 		<field name='client_fpl' type='integer' subtype='' access='rw' input='' default_value='' comment='The FPL limit for this client'></field>
-		<field name='client_Id' type='string' subtype='' access='rw' input='' default_value='' comment='The Result for this Client'></field>
+		<field name='client_ID' type='string' subtype='' access='rw' input='' default_value='' comment='The Result for this Client'></field>
 		<field name='eligible' type='boolean' subtype='' access='rw' input='' default_value='' comment='Is this Client Eligible'></field>
-		<field name='id' type='integer' subtype='' access='rw' input='main' default_value='' comment='key'></field>
 		<field name='mapping*key' type='string' subtype='' access='r' input='' default_value='' comment='Mapping Key'></field>
 		<field name='notes' type='array' subtype='' access='rw' input='' default_value='' comment='Reasons for rejecting the client'></field>
 		<field name='program' type='string' subtype='' access='rw' input='' default_value='' comment='Program'></field>
